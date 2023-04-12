@@ -1,0 +1,26 @@
+.cinema-card {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 95vw;
+    height: 300px;
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+  }
+  
+  .cinema-card-img {
+    width: 75%;
+    height: 275px;
+    /* object-fit: cover; */
+    margin-right: 16px;
+  }
+  
+  .card-info {
+    /* flex: 1; */
+    font-size: 20px;
+  }
+  
