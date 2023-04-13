@@ -8,6 +8,8 @@ import NavigationBar from './components/Navigation';
 import Footer from './components/Footer';
 import TicketsPage from './pages/Tickets';
 import DetailsPage from './pages/Details';
+import CinemaHall from './pages/Seats';
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return <>
@@ -18,7 +20,9 @@ function App() {
       <Route path="/cinemas" element={<CinemasPage/>}></Route>    
       <Route path="/program" element={<ProgramPage/>}></Route>  
       <Route path="/tickets" element={<TicketsPage/>}></Route>
-      <Route path="/details" element={<DetailsPage/>}></Route>       
+      <Route path="/details" element={<DetailsPage/>}></Route>  
+      <Route path="/seats" element={<CinemaHall/>}></Route>     
+      <Route path="/profile" element={<ProfilePage/>}></Route> 
     </Routes>
     <Footer/>
   </>;

@@ -14,7 +14,7 @@
   }
   
   .movie-poster {
-    width: 90%;
+    width: 70%;
     height: 500px;
     display: block;
   }
@@ -25,7 +25,7 @@
     left: 0;
     padding: 10px;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 1);
     font-size: 1.5em;
     margin: 0;
     font-weight: bold;
@@ -37,6 +37,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    left: -40px;
   }
   
   .movie-details {
@@ -44,7 +46,7 @@
     flex-direction: column;
   }
   
-  .movie-details p {
+  .details-p{
     margin-bottom: 10px;
   }
   

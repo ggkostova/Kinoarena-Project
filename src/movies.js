@@ -4,36 +4,73 @@ const MOVIES = [
         "name": "The Dark Knight",
         "genre": "Action, Crime, Drama",
         "premiere": "2008-07-14",
-        "duration": "122 min",
+        "duration": "152 min",
         "summary": "Lorem ......",
-        "director": "Slavi Vargulev",
-        "cast": "Leonardo, Brad, Gosho",
+        "director": "Christopher Nolan",
+        "cast": "Christian Bale, Heath Ledger, Aaron Eckhart",
         "image_src": "https://cdn.vox-cdn.com/thumbor/Kr_zFMNcZmn28_TBF-8YYlhD9gw=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11694967/0_c9S8ajFBpwX89ZuU.jpeg",
-        "projection_type": "2D"
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["14:00", "16:30", "19:00", "21:30"]
+            },
+            {
+                "type": "3D",
+                "times": ["15:00", "18:00", "21:00"]
+            },
+            {
+                "type": "IMAX",
+                "times": ["12:00", "17:00", "22:00"]
+
+            }
+        ]
     },
     {
         "id": "2",
         "name": "Inception",
         "genre": "Action, Adventure, Sci-Fi",
         "premiere": "2010-07-08",
-        "duration": "122 min",
+        "duration": "148 min",
         "summary": "Lorem ......",
-        "director": "Slavi Vargulev",
-        "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://pics.filmaffinity.com/Inception-652954101-large.jpg",
-        "projection_type": "3D"
+        "director": "Christopher Nolan",
+        "cast": "Leonardo DiCaprio, Ken Watanabe, Joseph Gordon-Levitt",
+        "image_src": "https://images-ext-1.discordapp.net/external/dlnJDHX-YdR7zQ0CBl1bPcj2gSGpoQvctwisep9ctJQ/https/m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw%40%40._V1_.jpg?width=825&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+            }
+        ]
     },
     {
         "id": "3",
         "name": "The Shawshank Redemption",
         "genre": "Drama",
         "premiere": "1994-09-22",
-        "duration": "122 min",
+        "duration": "142 min",
         "summary": "Lorem ......",
-        "director": "Slavi Vargulev",
-        "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_shawshank_redemption.jpg",
-        "projection_type": "2D"
+        "director": "Frank Darabont",
+        "cast": "Tim Robbins, Morgan Freeman, Bob Gunton",
+        "image_src": "https://images-ext-2.discordapp.net/external/xsgmFqFKotLCi-OcBigqK4cC7-C4Tm8UqeaSr7-JI0k/https/i.ytimg.com/vi/19THOH_dvxg/movieposter_en.jpg?width=697&height=1005",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:30", "16:00", "18:30"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:30", "17:30", "20:30"]
+            }
+        ]
     },
     {
         "id": "4",
@@ -44,8 +81,17 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_godfather.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/L2g6XSmyUOeCegmVNUPDG1b2axF6VTRr70PrQvux8Dg/https/m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM%40._V1_.jpg?width=860&height=1220",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["12:30", "15:00", "18:30"]
+            },
+            {
+                "type": "3D",
+                "times": ["12:30", "15:30", "21:30"]
+            }
+        ]
     },
     {
         "id": "5",
@@ -56,8 +102,17 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/pulp_fiction.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/T45CdIStMAQTZSnGlkoX8ZGPSQJT5BT8MvVT4KR4RdE/https/m.media-amazon.com/images/I/81wrPiZFKIL._RI_.jpg?width=917&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["11:30", "13:00", "17:30"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:30", "18:30", "22:30"]
+            }
+        ]
     },
     {
         "id": "6",
@@ -68,8 +123,21 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_matrix.jpg",
-        "projection_type": "3D"
+        "image_src": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+            }
+        ]
     },
     {
         "id": "7",
@@ -80,8 +148,17 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/forrest_gump.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/vISBzvfiwwgW5fB7ovJEySJ5FuR2lhNVEHdcwGTdrkM/https/kbimages1-a.akamaihd.net/22585eaf-7415-48f8-bff0-2af6da57338c/1200/1200/False/forrest-gump-1.jpg?width=777&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+            },
+        ]
     },
     {
         "id": "8",
@@ -92,8 +169,21 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/star_wars_episode_iv.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-1.discordapp.net/external/9l1ZRtmzLZujJMmZSx63F4rxylmzpKt8soeH5sWO30g/%3Fcb%3D20211105092556/https/static.wikia.nocookie.net/listofdeaths/images/b/b5/A_New_Hope_poster.jpg/revision/latest?width=862&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+            }
+        ]
     },
     {
         "id": "9",
@@ -104,8 +194,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_silence_of_the_lambs.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-1.discordapp.net/external/0YhNjD6J3rPq0FiUZ9eyBxYpIPObNR3ebL2jS0M-qAg/https/images-na.ssl-images-amazon.com/images/S/pv-target-images/1d661187b253755ef32e1f21748ca1e217529bb72f8ef8a87a18fd8e904246a0._RI_V_TTW_.jpg?width=917&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "10",
@@ -116,8 +222,23 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_lord_of_the_rings_fellowship.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-1.discordapp.net/external/-6NyHv74hiZMDAgn7A71aktRIwYjL3UkDN-foTBbrbk/https/m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY%40._V1_.jpg?width=822&height=1220",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "11",
@@ -128,8 +249,20 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_lion_king.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-1.discordapp.net/external/RxGLJ9I8dDIJTUDPCdinxYHqH1wplB9pv4k4-WSyHxM/https/m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI%40._V1_.jpg?width=822&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+
+        ]
     },
     {
         "id": "12",
@@ -140,8 +273,18 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/titanic.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/BdbjsyMqwfctoHAuGQsGlgkcv3Bq8CYiMaCu5s-f6eo/https/m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY%40._V1_.jpg?width=820&height=1220",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+            },
+
+        ]
     },
     {
         "id": "13",
@@ -152,8 +295,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/jurassic_park.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-2.discordapp.net/external/DWkHhI2T2p1J8Wf-vk4YSP0ZdfEP4ruCuSpISvrIDy0/https/m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE%40._V1_.jpg?width=815&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "14",
@@ -164,8 +323,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/avatar.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-2.discordapp.net/external/jQ0IyGoUgs9MxyGKsvP-XQKpMiiScBo9UGiUxtwTf4g/https/m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc%40._V1_.jpg?width=827&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "15",
@@ -176,8 +351,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/interstellar.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-2.discordapp.net/external/f449hmlP6i3S38HcAQ0N2bN0ykijXdsVcV9wo5yvoy4/https/m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU%40._V1_.jpg?width=825&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "16",
@@ -188,8 +379,19 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/et.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/-hgvUnJOtstxSpUPF-_QJLPNez0gWQ82Dq_xwf5vS7c/https/images.moviesanywhere.com/34f4f25b50973b8fe2b197c8a8a6e3a5/1a9ea9c0-fb38-439b-977e-40b6fe52a006.jpg?width=815&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+        ]
     },
     {
         "id": "17",
@@ -200,8 +402,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_avengers.jpg",
-        "projection_type": "3D"
+        "image_src": "https://images-ext-2.discordapp.net/external/XzYOSStLzPculPThwuydErqFj5isc2v2kNXirExzUyg/https/m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU%40._V1_.jpg?width=825&height=1220",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "18",
@@ -212,8 +430,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/jaws.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-1.discordapp.net/external/LhMA2Mwdg38If9fSShHJNMQMxsiJXKTR6CzhiBEVWzE/https/assets.scriptslug.com/live/img/posters/jaws-1975.jpg?width=825&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "19",
@@ -224,8 +458,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/the_terminator.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-2.discordapp.net/external/aIu7FX5Hei0DBYqA1JkzliejLF8AEgPVbofmz-fHVuc/https/m.media-amazon.com/images/M/MV5BMjAyMTk3ODA2MF5BMl5BanBnXkFtZTcwMTkzNDQyNA%40%40._V1_.jpg?width=815&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     },
     {
         "id": "20",
@@ -236,8 +486,20 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/back_to_the_future.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-1.discordapp.net/external/OF59brnWW4dLj62_TZU199bqeAsL_R6xtrsexaQOhUQ/https/m.media-amazon.com/images/M/MV5BMWE1MWYyYzEtMWY3YS00OWJiLWEzOGYtMTlkZTcwNWQ5NDVkXkEyXkFqcGdeQXVyMTMyNzcxMzI5._V1_FMjpg_UX1000_.jpg?width=815&height=1222",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+
+        ]
     },
     {
         "id": "21",
@@ -248,8 +510,24 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
-        "image_src": "https://www.example.com/raiders_of_the_lost_ark.jpg",
-        "projection_type": "2D"
+        "image_src": "https://images-ext-1.discordapp.net/external/JZAu09YZWaR0l7ClkAsOrbUPsAvOyrDDoicJknkFu8g/https/m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ%40._V1_FMjpg_UX1000_.jpg?width=830&height=1220",
+        "projection_types": [
+            {
+                "type": "2D",
+                "times": ["13:00", "16:00", "19:00", "22:00"]
+
+            },
+            {
+                "type": "3D",
+                "times": ["14:00", "17:00", "20:00"]
+
+            },
+            {
+                "type": "IMAX",
+                "times": ["15:00", "18:00", "21:00"]
+
+            }
+        ]
     }
 ]
 

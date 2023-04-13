@@ -1,0 +1,83 @@
+.buy-tickets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .buy-tickets h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .tickets-p{
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .buy-tickets button {
+    background-color: #0077FF;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .buy-tickets button:hover {
+    background-color: #0066CC;
+  }
+.buy-tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 30px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.buy-tickets h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.buy-tickets p {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.buy-tickets button {
+  background-color: #0077FF;
+  border: none;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buy-tickets button:hover {
+  background-color: #0066CC;
+}
+  

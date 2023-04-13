@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import logo from  "../logo.png"
 
 function NavigationBar() {
     return (
@@ -15,7 +16,7 @@ function NavigationBar() {
                     </li>
                 </ul>
                 <Link to="/">
-                    <img src="https://e7.pngegg.com/pngimages/674/509/png-clipart-popcorn-cinema-systems-corp-film-reel-popcorn-logo-film.png" alt="Logo" />
+                    <img src={logo} alt="Logo" style={{ position:"relative", left:"-60px", width: "70px", height: "50px" }}/>
                 </Link>
                 <Link to="/signin">Sign in</Link>
             </nav>

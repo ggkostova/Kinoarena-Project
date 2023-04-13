@@ -4,6 +4,7 @@ import MOVIES from '../movies';
 import Card from '../components/MovieCard';
 import MovieBanner from "../components/MovieBanner";
 import { Link } from 'react-router-dom';
+import LocalStorageManager from "../services/LocalStorageManager";
 
 function HomePage() {
     // set initial state for movie data and filter criteria
@@ -14,6 +15,8 @@ function HomePage() {
         date: "",
         time: "",
     });
+
+    LocalStorageManager.setMoviesInLocalStorage();
 
     // fetch movie data from local storage on component mount
     useEffect(() => {
@@ -30,13 +33,13 @@ function HomePage() {
     };
 
     // filter movies based on filter criteria
-    const filteredMovies = movies.filter(
-        (movie) =>
-            movie.title.toLowerCase().includes(filter.movieName.toLowerCase()) &&
-            movie.city.toLowerCase().includes(filter.city.toLowerCase()) &&
-            movie.date.toLowerCase().includes(filter.date.toLowerCase()) &&
-            movie.time.toLowerCase().includes(filter.time.toLowerCase())
-    );
+    // const filteredMovies = movies.filter(
+    //     (movie) =>
+    //         movie.title.toLowerCase().includes(filter.movieName.toLowerCase()) &&
+    //         movie.city.toLowerCase().includes(filter.city.toLowerCase()) &&
+    //         movie.date.toLowerCase().includes(filter.date.toLowerCase()) &&
+    //         movie.time.toLowerCase().includes(filter.time.toLowerCase())
+    // );
 
     const handleDetailsButtonClick = (id) => {
         MOVIES.filter(movie => movie.id === id);
@@ -67,6 +70,7 @@ function HomePage() {
                         name="movieName"
                         value={filter.movieName}
                         onChange={handleFilterChange}
+                        required
                     />
                 </label>
                 <label>
@@ -76,6 +80,7 @@ function HomePage() {
                         name="date"
                         value={filter.date}
                         onChange={handleFilterChange}
+                        required
                     />
                 </label>
                 <label>
@@ -85,9 +90,10 @@ function HomePage() {
                         name="time"
                         value={filter.time}
                         onChange={handleFilterChange}
+                        required
                     />
                 </label>
-                <button variant="primary"><Link className={'link'} to={'/tickets'}>Buy Tickets</Link></button>
+                <button variant="primary"><Link className={'link'} style={{ textDecoration: "none" }} to={'/tickets'}>Buy Tickets</Link></button>
             </div>
             <div className="movie-list-section">
                 <div className="movie-list">

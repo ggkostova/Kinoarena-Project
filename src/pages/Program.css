@@ -1,3 +1,52 @@
-.p{
-    background-color: rgb(239, 216, 123);
-}
+.MovieProgram {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="number"],
+  input[type="text"],
+  input[type="date"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 30px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 25px;
+  }
+  
+  input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 10px;
+    cursor: pointer;
+  }
+  
+  .program-p {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .programFilters{
+    display: flex;
+  }
+  h2{
+    text-align: center;
+  }

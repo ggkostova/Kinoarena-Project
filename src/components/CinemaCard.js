@@ -10,7 +10,7 @@ const CinemaCard = ({ cinema }) => {
                 <h2>{cinema.name}</h2>
                 <p>{cinema.address}</p>
                 <p>{cinema.phone}</p>
-                <button variant="primary"><Link className={'link'} to={'/program'}>View Program</Link></button>
+                <button variant="primary"><Link className={'link'} to={'/program'} style={{ textDecoration: "none" }}>View Program</Link></button>
             </div>
         </div>
     );

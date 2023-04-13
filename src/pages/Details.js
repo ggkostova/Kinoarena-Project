@@ -18,11 +18,11 @@ export default function DetailsPage() {
             </div>
             <div className="movie-card-right">
                 <div className="movie-details">
-                    <p><strong>Duration:</strong> {movie[0].duration}</p>
-                    <p><strong>Summary:</strong> {movie[0].summary}</p>
-                    <p><strong>Director:</strong> {movie[0].director}</p>
-                    <p><strong>Genre:</strong> {movie[0].genre}</p>
-                    <p><strong>Cast:</strong> {movie[0].cast}</p>
+                    <p className="details-p"><strong>Duration:</strong> {movie[0].duration}</p>
+                    <p className="details-p"><strong>Summary:</strong> {movie[0].summary}</p>
+                    <p className="details-p"><strong>Director:</strong> {movie[0].director}</p>
+                    <p className="details-p"><strong>Genre:</strong> {movie[0].genre}</p>
+                    <p className="details-p"><strong>Cast:</strong> {movie[0].cast}</p>
                     <button variant="primary"><Link className={'link'} to={'/tickets'}>Buy Tickets</Link></button>
                 </div>
             </div>
