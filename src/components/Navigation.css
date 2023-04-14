@@ -1,5 +1,5 @@
 nav {
-    background-color: #222;
+    background: linear-gradient(90deg, rgba(85,18,130,1) 0%, rgba(37,67,149,1) 50%, rgba(9,101,108,1) 100%);
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -29,6 +29,7 @@ nav {
   }
   
   nav img {
-    height: 50px;
+    position:"relative";
+    left:"-20px";
   }
   

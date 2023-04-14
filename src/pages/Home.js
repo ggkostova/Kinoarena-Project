@@ -13,7 +13,6 @@ function HomePage() {
         city: "",
         movieName: "",
         date: "",
-        time: "",
     });
 
     LocalStorageManager.setMoviesInLocalStorage();
@@ -26,7 +25,6 @@ function HomePage() {
         }
     }, []);
 
-    // handle filter input changes
     const handleFilterChange = (event) => {
         const { name, value } = event.target;
         setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
@@ -51,56 +49,43 @@ function HomePage() {
                 {/* {MOVIES.map((movie) => (
                     <MovieBanner movie={movie} key={movie.id} />
                 ))}             */}
-                 <MovieBanner/>
+                <MovieBanner />
             </div>
             <div className="filter-section">
-                <label>
-                    City:
-                    <input
-                        type="text"
-                        name="city"
-                        value={filter.city}
-                        onChange={handleFilterChange}
-                    />
-                </label>
-                <label>
-                    Movie Name:
-                    <input
-                        type="text"
-                        name="movieName"
-                        value={filter.movieName}
-                        onChange={handleFilterChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Date:
-                    <input
-                        type="text"
-                        name="date"
-                        value={filter.date}
-                        onChange={handleFilterChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Time:
-                    <input
-                        type="text"
-                        name="time"
-                        value={filter.time}
-                        onChange={handleFilterChange}
-                        required
-                    />
-                </label>
-                <button variant="primary"><Link className={'link'} style={{ textDecoration: "none" }} to={'/tickets'}>Buy Tickets</Link></button>
+                <select id="cinema" name="cinema">
+                    <option default value="Choose cinema:">Choose cinema:</option>
+                    <option value="theMall">КИНО АРЕНА THE MALL</option>
+                    <option value="grandMall">КИНО АРЕНА GRAND MALL ВАРНА</option>
+                    <option value="bulgariaMall">КИНО АРЕНА ДЕЛУКС BULGARIA MALL</option>
+                    <option value="molVarna">КИНО АРЕНА МОЛ ВАРНА</option>
+                    <option value="plovdiv">КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ</option>
+                </select>
+                <input
+                    type="text"
+                    name="movieName"
+                    value={filter.movieName}
+                    onChange={handleFilterChange}
+                    required
+                    placeholder="Movie Name..."
+                />
+
+                <input
+                    type="text"
+                    name="date"
+                    value={filter.date}
+                    onChange={handleFilterChange}
+                    required
+                    placeholder="Date..."
+                />
+
+                <button className="filter-btn" variant="primary"><Link className={'link'} style={{ textDecoration: "none" }} to={'/tickets'}>Buy Tickets</Link></button>
             </div>
             <div className="movie-list-section">
                 <div className="movie-list">
-                    {MOVIES.map(movie=> (
-                        <Card 
-                        key={movie.id}
-                        movie={movie} 
+                    {MOVIES.map(movie => (
+                        <Card
+                            key={movie.id}
+                            movie={movie}
                         />
                     ))}
                 </div>

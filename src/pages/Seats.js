@@ -1,5 +1,6 @@
 import './Seats.css';
 import React, { useState } from "react";
+import BuyTickets from './Tickets';
 
 function Seat({ row, seat, isReserved, isSelected, onSelect }) {
   const handleClick = () => {
@@ -7,6 +8,14 @@ function Seat({ row, seat, isReserved, isSelected, onSelect }) {
       onSelect(row, seat);
     }
   };
+
+  
+//   const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+//   console.log(tickets);
+//   setCinema(tickets.cinema);
+//   setMovieName(tickets.movieName);
+//   setDate(tickets.date);
+//   setUsername(tickets.user);
 
   return (
     <div
@@ -68,9 +77,10 @@ function SeatLayout({ numRows, numSeatsPerRow, reservedSeats, selectedSeats, onS
   );
 }
 
-function CinemaHall() {
+function CinemaHall(props) {
   const [reservedSeats, setReservedSeats] = useState(["A1", "B7", "C3"]);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const {cinema, movieName, date, user} = props;
 
   const handleSeatSelect = (row, seat) => {
     const seatId = `${row}${seat}`;
@@ -81,6 +91,8 @@ function CinemaHall() {
       setSelectedSeats([...selectedSeats, seatId]);
     }
   };
+
+  console.log(cinema, movieName, date, user);
 
   
   const handleBookSeats = () => {
@@ -99,7 +111,8 @@ function CinemaHall() {
         selectedSeats={selectedSeats}
         onSelect={handleSeatSelect}
       />
-      <button onClick={handleBookSeats}>Book Selected Seats</button>
+      <button className='seats-btn' onClick={handleBookSeats}>Book Selected Seats</button>
+
     </div>
   );
 }
@@ -107,63 +120,5 @@ function CinemaHall() {
 export default CinemaHall;
 
 
-// Seat component representing an individual seat in the cinema hall
-// function Seat(props) {
-//   const { id, isReserved, isSelected, onSelect } = props;
-
-//   let seatClass = 'seat';
-//   if (isReserved) {
-//     seatClass += ' reserved';
-//   } else if (isSelected) {
-//     seatClass += ' selected';
-//   }
-
-//   function handleClick() {
-//     if (!isReserved) {
-//       onSelect(id);
-//     }
-//   }
-
-//   return <div className={seatClass} onClick={handleClick}></div>;
-// }
-
-// // SeatLayout component representing the entire cinema hall layout
-// export default function SeatLayout(props) {
-//   const { seats, onSeatSelect, selectedSeats } = props;
-
-//   function handleSeatSelect(id) {
-//     const index = selectedSeats.indexOf(id);
-//     if (index === -1) {
-//       // Add seat to selected seats
-//       onSeatSelect([...selectedSeats, id]);
-//     } else {
-//       // Remove seat from selected seats
-//       const newSelectedSeats = [...selectedSeats];
-//       newSelectedSeats.splice(index, 1);
-//       onSeatSelect(newSelectedSeats);
-//     }
-//   }
-
-//   function handleReserveSeats() {
-//     // Call reservation API to reserve selected seats
-//     // If successful, update seats array to mark selected seats as reserved
-//     // If unsuccessful, display error message
-//   }
-
-//   return (
-//     <div className="seat-layout">
-//       {seats.map((seat) => (
-//         <Seat
-//           key={seat.id}
-//           id={seat.id}
-//           isReserved={seat.isReserved}
-//           isSelected={selectedSeats.includes(seat.id)}
-//           onSelect={handleSeatSelect}
-//         />
-//       ))}
-//       <button onClick={handleReserveSeats}>Reserve Seats</button>
-//     </div>
-//   );
-// }
 
 

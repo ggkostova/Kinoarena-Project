@@ -4,7 +4,7 @@ import "./Navigation.css";
 import logo from  "../logo.png";
 import userManager from "../services/UserManager";
 
-function NavigationBar() {
+function NavigationLoggedBar() {
 
     return (
         <div>
@@ -20,10 +20,10 @@ function NavigationBar() {
                 <Link to="/">
                     <img src={logo} alt="Logo" style={{ width: "90x", height: "60px"}}/>
                 </Link>
-                <Link to="/login">Sign in</Link>
+                <Link to="/profile">Profile</Link>
             </nav>
         </div>
     );
 }
 
-export default NavigationBar;
+export default NavigationLoggedBar;

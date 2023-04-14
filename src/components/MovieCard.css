@@ -1,11 +1,12 @@
 .movie-card {
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: rgb(226, 226, 226);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 300px;
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
   }
   
   .movie-card-img {
@@ -21,5 +22,11 @@
   .card p {
     font-size: 16px;
     line-height: 1.5;
+  }
+  .movie-card-btn{
+    background: linear-gradient(90deg, rgba(85,18,130,1) 0%, rgba(37,67,149,1) 50%, rgba(9,101,108,1) 100%);
+    margin-left: 20px;
+    border-radius: 10px;
+    height: 30px;
   }
   

@@ -9,16 +9,10 @@ const ProfilePage = ({ user, favoriteMovies, bookingHistory }) => {
     return (
         <div className="profile-page">
             <h1>User Info</h1>
-            {/* <p>Name: {user.name}</p> */}
-            {/* <p>Email: {user.email}</p> */}
-            {/* <p>Age: {user.age}</p> */}
-
-            <h2>Favourite Movies</h2>
-            <ul>
-                {/* {favoriteMovies.map((movie) => (
-                    <li key={movie.id}>{movie.name}</li>
-                ))} */}
-            </ul>
+            <p>Name: </p>
+            {/* {user.name} */}
+            <p>Email:</p> 
+            <p>Age:</p>
 
             <h2>Booking and Tickets History</h2>
             {/* <ul>

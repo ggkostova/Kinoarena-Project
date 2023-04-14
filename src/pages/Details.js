@@ -10,6 +10,10 @@ export default function DetailsPage() {
 
     let movie = MOVIES.filter(movie => movie.id === movieId);
 
+    const ticketsClick = () => {
+        localStorage.setItem("ticketsId", movie[0].id);
+    }    
+
     return (
         <div className="detail-card">
             <div className="detail-card-left">
@@ -23,7 +27,7 @@ export default function DetailsPage() {
                     <p className="details-p"><strong>Director:</strong> {movie[0].director}</p>
                     <p className="details-p"><strong>Genre:</strong> {movie[0].genre}</p>
                     <p className="details-p"><strong>Cast:</strong> {movie[0].cast}</p>
-                    <button variant="primary"><Link className={'link'} to={'/tickets'}>Buy Tickets</Link></button>
+                    <button className='movie-card-btn' variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy Tickets</Link></button>
                 </div>
             </div>
         </div>

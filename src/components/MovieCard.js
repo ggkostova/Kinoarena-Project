@@ -20,8 +20,8 @@ const Card = ({ movie }) => {
       <p>Genre: {movie.genre}</p>
       <p>Premiere: {movie.premiere}</p>
       <p>Projection Type: {movie.projection_type}</p>
-      <button variant="primary" onClick={handleClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/details', state: { id: movie.id } }}>Details</Link></button>
-      <button variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy Tickets</Link></button>
+      <button className='movie-card-btn' variant="primary" onClick={handleClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/details', state: { id: movie.id } }}>Details</Link></button>
+      <button className='movie-card-btn' variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy Tickets</Link></button>
     </div>
   );
 };
