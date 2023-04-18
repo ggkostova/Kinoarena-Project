@@ -1,33 +1,34 @@
-import NavigationBar from '../components/Navigation';
+import delayFunction from '../DelayFunction';
+import localStorageManager from './LocalStorageManager';
 
 class User {
-    constructor(username, password) {
+    constructor(username, age, password) {
         this.username = username;
+        this.age = age;
         this.password = password;
     }
-
 }
-
 
 class UserManager {
     constructor() {
-        let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
-        if (loggedUser) {
-            this.loggedUser = new User(loggedUser.username, loggedUser.password);
+        let logged = JSON.parse(localStorage.getItem('loggedUser'));
+        if (logged) {
+            this.loggedUser = new User(logged.username, logged.age, logged.password);
         }
+        this.users = [new User('gosho', 24, '4444'), new User('pesho', 27, '1234')]; 
 
         (() => {
             const addArrayToLocalStorage = (users) => {
                 localStorage.setItem('users', JSON.stringify(users));
             }
 
-            addArrayToLocalStorage([new User('gosho', '4444'), new User('pesho', '1234')]);
+            if (localStorage.getItem('users') === null) {
+                addArrayToLocalStorage([new User('gosho', "22", '4444'), new User('pesho', '48', '1234')]);
+            }
         })();
     }
-
-    loggedUser = null;
-
-    users = JSON.parse(localStorage.getItem("users"));
+        
+    loggedUser = null;    
 
     isUserLoggedIn = () =>{
         if(this.loggedUser){
@@ -38,34 +39,48 @@ class UserManager {
     }
 
     login = (username, password) => {
-        console.log(username, password);
-        let foundUser = this.users.find(user => user.username === username && user.password === password);
+        localStorageManager.getItem("users")
+            .then(users => {
+                let existingUser = users && users.find(user => user.username === username && user.password === password);
+                if (existingUser) {
+                    this.loggedUser = existingUser;
+                    localStorageManager.setItem("loggedUser", existingUser);
+                } else {
+                    alert("there is no such user!")
+                }
+            })  
+    }    
 
-        if (foundUser) {
-            this.loggedUser = foundUser;
-            localStorage.setItem('loggedUser', JSON.stringify(this.loggedUser));
-
-            return true;
-        }
-
-        return false;
+    register = (username, age, password, confirmPassword) => {
+        delayFunction(localStorageManager.getItem, ["users"])
+            .then(users => {
+                let existingUser = users.find(user => user.username === username);
+                if (!existingUser) {
+                    if(password === confirmPassword){
+                        this.users.push(new User(username, age, password));
+                        delayFunction(() => localStorageManager.setItem('users', this.users), []);
+                        return true;
+                    }else{
+                        alert("The password and confirm password must be equal.");
+                        return false;    
+                    }
+                } else {
+                    alert("There is already user with this username.");
+                    return false;
+                }
+            }) 
+            .catch(error => {
+                console.error(error);
+                return false;
+            });
     }
 
-    register = (username, password, confirmPassword) => {
-        let foundUser = this.users.find(user => user.username === username);
-        console.log(this.users);
-        if (!foundUser && (password === confirmPassword)) {
-            this.users.push(new User(username, password));
-            localStorage.setItem('users', JSON.stringify(this.users));
-            return true;
-        } else {
-            alert("There is already user with this username.");
-            return false;
-        }
+    logout = () =>{
+        delayFunction(localStorageManager.removeItem, ["loggedUser"]);
     }
-
 }
 
 let userManager = new UserManager();
 
 export default userManager;
+

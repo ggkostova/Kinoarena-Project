@@ -50,3 +50,13 @@
   h2{
     text-align: center;
   }
+
+  .cinema-input{
+    position: relative;
+    bottom: 10%;
+  }
+
+  .booking-history{
+    justify-content: center;
+    text-align: center;
+  }

@@ -28,9 +28,9 @@
     color: whitesmoke;
   }
 
-  .btn{
+  .cinema-card-btn{
     background: linear-gradient(90deg, rgba(85, 18, 130, 1) 0%, rgba(37, 67, 149, 1) 50%, rgba(9, 101, 108, 1) 100%);
     position: relative;
-    left: 1%;
+    left: 36%;
   }
   

@@ -1,5 +1,4 @@
 import './App.css';
-// import './App.scss';
 import HomePage from './pages/Home';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import CinemasPage from './pages/Cinemas';
@@ -15,9 +14,17 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import userManager from './services/UserManager';
 import { useEffect, useState } from 'react';
+import localStorageManager from './services/LocalStorageManager';
+import CINEMAS from './cinemas';
+import MOVIES from './movies';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
-  const [user, setUser] = useState(false)
+  localStorageManager.setItem("cinemas", CINEMAS);
+  localStorageManager.setItem("movies", MOVIES);
+
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
     setInterval(()=>{
@@ -26,17 +33,9 @@ function App() {
     },100);
   },[])
 
-  // const [cinema, setCinema] = useState('');
-  // const [movieName, setMovieName] = useState('');
-  // const [date, setDate] = useState('');
-  // const [username, setUsername] = useState('');
-  // setCinema(tickets.cinema);
-  // setMovieName(tickets.movieName);
-  // setDate(tickets.date);
-  // setUsername(tickets.user);
-
   return <>
-     {user ? <NavigationLoggedBar/> : <NavigationBar />}
+  <Provider store ={store}>
+  {user ? <NavigationLoggedBar/> : <NavigationBar />}
     <Routes>
       <Route index element={<Navigate to={'/home'} />}></Route>
       <Route path="/home" element={<HomePage/>}></Route>      
@@ -51,6 +50,7 @@ function App() {
 
     </Routes>
     <Footer/>
+  </Provider> 
   </>;
 }
 

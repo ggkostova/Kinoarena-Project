@@ -1,13 +1,27 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import BANNERS from "../banners";
+import "./MovieBanner.css";
 
 const MovieBanner = () => {
-    return (
-      <div className="movie-banner" style={{textAlign: 'center'}}>
-        <img style={{width: '90vw'}}src={'https://live.staticflickr.com/2222/2452159541_23ca8f2df0_b.jpg'} alt={"Movie Banner"}/>
-      </div>
-    );
-  };
-  
-  export default MovieBanner;
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % BANNERS.length);
+    }, 5000);
+
+    return () => clearInterval(interval); 
+  }, []);
+
+  return (
+    <div className="movie-banner" style={{ textAlign: "center" }}>
+      <img
+        style={{ width: "90vw" }}
+        src={BANNERS[currentImageIndex]}
+        alt={"Movie Banner"}
+      />
+    </div>
+  );
+};
+
+export default MovieBanner;

@@ -9,12 +9,19 @@ class LocalStorageManager {
         });
 
     }
-    setMoviesInLocalStorage() {
-        localStorage.setItem("movies", JSON.stringify(this.movies));
+
+    setItem = (key, value) =>{
+        localStorage.setItem(key, JSON.stringify(value));
     }
-    getMoviesFromLocalStorage(){
-        this.movies = JSON.parse(localStorage.getItem("movies"));
-        return this.movies;
+
+    getItem = (key) => {
+        return new Promise((res, rej) => {
+            const data = JSON.parse(localStorage.getItem(key));
+            res(data);
+        });
+    }
+    removeItem = (key) => {
+        localStorage.removeItem(key);
     }
 }
 let localStorageManager = new LocalStorageManager();

@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import './Program.css';
-import MOVIES from '../movies';
 import ProgramCard from '../components/ProgramCard';
-import LocalStorageManager from "../services/LocalStorageManager";
-
+import localStorageManager from "../services/LocalStorageManager";
+import { useEffect } from 'react';
+import delayFunction from '../DelayFunction';
 
 export default function MovieProgram() {
     const [age, setAge] = useState('');
     const [cinema, setCinema] = useState('');
     const [movie, setMovie] = useState('');
     const [date, setDate] = useState('');
+    const [movies, setMovies] = useState('');
 
-    let movies = LocalStorageManager.getMoviesFromLocalStorage();
-    console.log(movies[0]);
+    useEffect(() => {
+        delayFunction(localStorageManager.getItem, ["movies"]).then((res) => {
+            setMovies(res)
+        });
+    }, []);
 
     return (
         <div>
 
             <h2>Movie Program</h2>
             <div className='programFilters'>
-                {/* <label htmlFor="age">Age:</label> */}
                 <input
                     type="number"
                     id="age"
@@ -28,16 +31,14 @@ export default function MovieProgram() {
                     onChange={(e) => setAge(e.target.value)}
                 />
                 <br />
-                {/* <label htmlFor="cinema">Cinema:</label> */}
                 <input
                     type="text"
-                    id="cinema"
+                    id="cinema-input"
                     placeholder='Cinema...'
                     value={cinema}
                     onChange={(e) => setCinema(e.target.value)}
                 />
                 <br />
-                {/* <label htmlFor="movie">Movie:</label> */}
                 <input
                     type="text"
                     id="movie"
@@ -46,7 +47,6 @@ export default function MovieProgram() {
                     onChange={(e) => setMovie(e.target.value)}
                 />
                 <br />
-                {/* <label htmlFor="date">Date:</label> */}
                 <input
                     type="date"
                     id="date"
@@ -61,13 +61,13 @@ export default function MovieProgram() {
             </p>
 
             <div className="movie-list">
-                    {movies.map(movie=> (
-                        <ProgramCard 
+                {movies && movies.map(movie => (
+                    <ProgramCard
                         key={movie.id}
-                        movie={movie} 
-                        />
-                    ))}
-                </div>
+                        movie={movie}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

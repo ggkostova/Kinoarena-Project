@@ -1,16 +1,17 @@
 import React from 'react';
 import "./MovieCard.css";
 import { Link } from 'react-router-dom';
+import localStorageManager from '../services/LocalStorageManager';
+import delayFunction from '../DelayFunction';
 
 const Card = ({ movie }) => {
 
   const handleClick = () => {
-  
-    localStorage.setItem("detailsId", movie.id);
+    delayFunction(() => localStorageManager.setItem('detailsId', movie.id), []);
   }
 
   const ticketsClick = () => {
-    localStorage.setItem("ticketsId", movie.id);
+    delayFunction(() => localStorageManager.setItem('ticketsId', movie.id), []);
   }
 
   return (

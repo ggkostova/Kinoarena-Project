@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-// Variables
+
 $primary-color: #2196f3;
 
-// Mixins
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Base styles
 * {
   box-sizing: border-box;
 }
@@ -33,6 +31,7 @@ form {
   @include flex-center;
   flex-direction: column;
   margin-top: 2rem;
+  height: 65.4vh;
   input {
     padding: 1rem;
     margin-bottom: 1rem;
@@ -64,9 +63,9 @@ p {
   a {
     color: $primary-color;
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
+  }
+  &:hover{
+    text-decoration: underline;
   }
 }
 
@@ -82,5 +81,10 @@ button {
   transition: background-color 0.2s ease-in-out;
   &:hover {
     background-color: darken($primary-color, 10%);
+  }
+}
+button {
+  a{
+    text-decoration: none;
   }
 }

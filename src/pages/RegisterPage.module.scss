@@ -70,7 +70,7 @@ p {
   }
 }
 
-button {
+.register-btn {
   @include flex-center;
   margin-top: 1rem;
   padding: 1rem 2rem;
@@ -85,3 +85,8 @@ button {
   }
 }
 
+.register-btn {
+  a{
+    text-decoration: none;
+  }
+}

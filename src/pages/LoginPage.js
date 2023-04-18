@@ -7,20 +7,22 @@ function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    let handleButtonClick = (e) =>{
-        e.preventDefault();
-        userManager.login(username, password);
-    }
-
+    
     const handleUsername = (event) =>{
         let res = event.target.value;
         setUsername(res);
     }
-
+    
     const handlePass = (event) =>{
         let res = event.target.value;
         setPassword(res);
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        userManager.login(username, password);
+    };
+
     return (
         <div>
             <h1>Login</h1>
@@ -43,7 +45,7 @@ function LoginPage() {
                     onChange={handlePass}
                 />
                 <br />
-                <button onClick={handleButtonClick} type="submit">Login</button>
+                <button onClick={handleSubmit} id='login-link'><Link to={'/home'}>Login</Link></button>
             </form>
             <p>Don't have an account? <Link to="/register">New Registration</Link></p>
         </div>
@@ -51,3 +53,8 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+
+
+
+

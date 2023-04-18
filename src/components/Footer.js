@@ -1,19 +1,21 @@
 import React from "react";
 import "./Footer.css"; 
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer>
       <div className="column">
         <h3>About us</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p className="footer-p">Cinemas website</p>
+        <p className="footer-p">© 2023 Kino</p>
       </div>
       <div className="column">
         <h3>Links</h3>
         <ul>
-          <li>Link 1</li>
-          <li>Link 2</li>
-          <li>Link 3</li>
+          <Link className="footer-links" to={'/cinemas'}>Cinemas</Link><br/>
+          <Link className="footer-links" to={'/program'}>Program</Link><br/>
+          <Link className="footer-links" to={'/tickets'}>Buy tickets</Link><br/>
         </ul>
       </div>
       <div className="column">
