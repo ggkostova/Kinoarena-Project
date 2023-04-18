@@ -1,4 +1,5 @@
 import MOVIES from "../movies";
+import delayFunction from "../DelayFunction";
 
 class LocalStorageManager {
     movies = [];
@@ -11,7 +12,7 @@ class LocalStorageManager {
     }
 
     setItem = (key, value) =>{
-        localStorage.setItem(key, JSON.stringify(value));
+        delayFunction(()=>localStorage.setItem(key, JSON.stringify(value)),[]);
     }
 
     getItem = (key) => {
@@ -21,7 +22,7 @@ class LocalStorageManager {
         });
     }
     removeItem = (key) => {
-        localStorage.removeItem(key);
+       delayFunction(localStorage.removeItem, key);
     }
 }
 let localStorageManager = new LocalStorageManager();

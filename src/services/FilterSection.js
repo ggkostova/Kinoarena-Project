@@ -8,8 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MOVIES from "../movies";
 import "./FilterSection.css";
 
-function FilterSection({ filter, setFilter, onSubmit }) {
-
+function FilterSection({ filter, setFilter }) {
     const [projectionTypes, setProjectionTypes] = useState([]);
     const [projectionTimes, setProjectionTimes] = useState([]);
 
@@ -33,22 +32,17 @@ function FilterSection({ filter, setFilter, onSubmit }) {
         }
     }, [filter.projectionType, projectionTypes]);
 
-
     const handleFilterChange = (event) => {
         const { name, value } = event.target;
-
+      
         if (name === "date") {
-            const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
-            setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
+          const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
+          setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
         } else {
-            setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
+          setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
         }
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onSubmit && onSubmit(event);
-    };
+      };
+   
 
     return (
         <form className="filter-form">
@@ -62,17 +56,19 @@ function FilterSection({ filter, setFilter, onSubmit }) {
                     style={{ height: '30px' }}
                 >
                     <option value="default">Choose cinema...</option>
-                    <option value="Kino Arena GrandMall Varna">
+                    <option value="КИНО АРЕНА GRAND MALL ВАРНА">
                         КИНО АРЕНА GRAND MALL ВАРНА
                     </option>
-                    <option value="Kino Arena Bulgaria Mall Sofia">
+                    <option value="КИНО АРЕНА ДЕЛУКС BULGARIA MALL">
                         КИНО АРЕНА ДЕЛУКС BULGARIA MALL
                     </option>
-                    <option value="Kino Arena Mall Varna">КИНО АРЕНА МОЛ ВАРНА</option>
-                    <option value="Kino Arena Plovdiv">
+                    <option value="КИНО АРЕНА МОЛ ВАРНА">
+                        КИНО АРЕНА МОЛ ВАРНА
+                    </option>
+                    <option value="КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ">
                         КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ
                     </option>
-                    <option value="Kino Arena TheMall Sofia">
+                    <option value="КИНО АРЕНА THE MALL">
                         КИНО АРЕНА THE MALL
                     </option>
                 </select>
@@ -131,12 +127,6 @@ function FilterSection({ filter, setFilter, onSubmit }) {
                     dateFormat="yy-mm-dd"
                     required
                 />
-                <button variant="primary" onClick={handleSubmit}
-                    disabled={!filter.cinema || !filter.movieName || !filter.date}>
-                    <Link className={"link"} style={{ textDecoration: "none" }}>
-                        Choose Seats
-                    </Link>
-                </button>
             </div>
         </form>
     );

@@ -8,7 +8,6 @@ import MovieBanner from "../components/MovieBanner";
 import { Link, useNavigate } from "react-router-dom";
 import FilterSection from "../services/FilterSection";
 import localStorageManager from "../services/LocalStorageManager";
-import delayFunction from "../DelayFunction";
 
 
 function HomePage() {
@@ -35,7 +34,8 @@ function HomePage() {
         movieName: "",
         date: "",
         projectionType: "",
-        projectionTimes: ""
+        projectionTimes: "",
+        cinema: ""
     });
 
     const dispatch = useDispatch();
@@ -58,15 +58,17 @@ function HomePage() {
     };
 
     useEffect(() => {
-        delayFunction(localStorageManager.getItem, ["movies"]).then((res) => {
-            setMovies(res);
-        });
-    }, []);
-
-    const handleFilterChange = (event) => {
-        const { name, value } = event.target;
-        setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
-    };
+        const filteredMovies = MOVIES.filter(
+          (movie) =>
+            (!filter.city || movie.city === filter.city) &&
+            (!filter.movieName || movie.name === filter.movieName) && 
+            (!filter.date || movie.date === filter.date) &&
+            (!filter.projectionType || movie.projectionType === filter.projectionType) &&
+            (!filter.projectionTimes || movie.projectionTimes.includes(filter.projectionTimes)) &&
+            (!filter.cinema || movie.cinema === filter.cinema) 
+        );
+        setMovies(filteredMovies);
+    }, [filter]);
 
     return (
         <div className="movie-page">

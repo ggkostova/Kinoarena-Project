@@ -1,4 +1,3 @@
-import delayFunction from '../DelayFunction';
 import localStorageManager from './LocalStorageManager';
 
 class User {
@@ -15,7 +14,7 @@ class UserManager {
         if (logged) {
             this.loggedUser = new User(logged.username, logged.age, logged.password);
         }
-        this.users = [new User('gosho', 24, '4444'), new User('pesho', 27, '1234')]; 
+        this.users = [new User('gosho', 24, '4444'), new User('pesho', 27, '1234')];
 
         (() => {
             const addArrayToLocalStorage = (users) => {
@@ -52,13 +51,13 @@ class UserManager {
     }    
 
     register = (username, age, password, confirmPassword) => {
-        delayFunction(localStorageManager.getItem, ["users"])
+        localStorageManager.getItem("users")
             .then(users => {
                 let existingUser = users.find(user => user.username === username);
                 if (!existingUser) {
                     if(password === confirmPassword){
                         this.users.push(new User(username, age, password));
-                        delayFunction(() => localStorageManager.setItem('users', this.users), []);
+                        localStorageManager.setItem('users', this.users);
                         return true;
                     }else{
                         alert("The password and confirm password must be equal.");
@@ -76,7 +75,7 @@ class UserManager {
     }
 
     logout = () =>{
-        delayFunction(localStorageManager.removeItem, ["loggedUser"]);
+        localStorageManager.removeItem("loggedUser");
     }
 }
 
