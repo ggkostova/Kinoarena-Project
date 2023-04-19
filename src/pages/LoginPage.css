@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+:root {
+  --primary-color: #2196f3;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  height: 500px;
+  width: 35%;
+  background-color: rgb(68, 20, 20);
+  opacity: 0.9;
+  color: rgb(255, 255, 255);
+  border-radius: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  left: 35%;
+  border: 7px solid rgb(3, 3, 3);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 5px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+form input {
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  color: black;
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+p a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+p:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: none;
+  color: #000000;
+  background: rgb(245, 216, 216);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.login-btn a {
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: rgb(227, 191, 191);
+}
+
+.error-message {
+  color: rgb(255, 5, 5);
+  margin-top: 0.5rem;
+  height: 40px;
+  visibility: visible;
+}

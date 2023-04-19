@@ -1,33 +1,62 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './LoginPage.module.scss';
+import './LoginPage.css';
 import userManager from '../services/UserManager';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [isFormValid, setIsFormValid] = useState(false);
 
-    
-    const handleUsername = (event) =>{
+
+    const handleUsername = (event) => {
         let res = event.target.value;
+        res.trim();
         setUsername(res);
+        setError('');
     }
-    
-    const handlePass = (event) =>{
+
+    const handlePass = (event) => {
         let res = event.target.value;
         setPassword(res);
+        setError('');
     }
 
+    const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        userManager.login(username, password);
+        userManager.login(username, password).then((res) => {
+            if(res){
+                navigate("/home");
+                setIsFormValid(true);
+                setError('');
+            }else{
+                setIsFormValid(false);
+                setError('There is not user with these phragments.');
+            }
+        })
     };
 
+    useEffect(() => {
+        if (!isFormValid) {
+            console.log(isFormValid);
+        }
+    }, [isFormValid]);
+
+    useEffect(() => {
+        if (error) {
+            console.log(error);
+        }
+    }, [error]);
+
     return (
-        <div>
+        <div className='login-container'>
             <h1>Login</h1>
             <form>
-                <label htmlFor="username">Username:</label>
                 <input
                     type="username"
                     id="username"
@@ -36,7 +65,6 @@ function LoginPage() {
                     onChange={handleUsername}
                 />
                 <br />
-                <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     id="password"
@@ -45,7 +73,10 @@ function LoginPage() {
                     onChange={handlePass}
                 />
                 <br />
-                <button onClick={handleSubmit} id='login-link'><Link to={'/home'}>Login</Link></button>
+                <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
+                    {error && error}
+                </div>
+                <button className='login-btn' onClick={handleSubmit}>Login</button>
             </form>
             <p>Don't have an account? <Link to="/register">New Registration</Link></p>
         </div>

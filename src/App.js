@@ -25,13 +25,20 @@ function App() {
   localStorageManager.setItem("movies", MOVIES);
 
   const [user, setUser] = useState(false);
-
+  setInterval(()=>{
+    const logged = userManager.isUserLoggedIn();
+    setUser(logged);
+  },100);
+  
   useEffect(() => {
-    setInterval(()=>{
-      const logged = userManager.isUserLoggedIn();
-      setUser(logged);
-    },100);
-  },[])
+    if(user){
+      console.log(user);
+    }
+    // setInterval(()=>{
+    //   const logged = userManager.isUserLoggedIn();
+    //   setUser(logged);
+    // },100);
+  },[user])
 
   return <>
   <Provider store ={store}>
