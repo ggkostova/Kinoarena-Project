@@ -41,7 +41,7 @@ export default function DetailsPage() {
                     <p className="details-p"><strong>Director:</strong> {movie && movie.director}</p>
                     <p className="details-p"><strong>Genre:</strong> {movie && movie.genre}</p>
                     <p className="details-p"><strong>Cast:</strong> {movie && movie.cast}</p>
-                    <button className='movie-card-btn' variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy Tickets</Link></button>
+                    <button className='movie-card-btn' variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy</Link></button>
                 </div>
             </div>
         </div>
