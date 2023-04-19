@@ -6,9 +6,11 @@ import { setTicketInfo } from "../store/ticketSlice";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
- 
-import FilterSection from "../services/FilterSection";
- 
+
+import MovieInfoCard from "../components/MovieInfoCard";
+import TicketTable from "../components/TicketTable";
+
+
 function buyTicket(cinema, movieName, date, projectionType, projectionTimes, username) {
   const ticket = {
     cinema: cinema,
@@ -30,21 +32,28 @@ function BuyTickets() {
   const [filter, setFilter] = React.useState({
     cinema: "",
     movieName: "",
-    date: "",
     projectionType: "",
     projectionTimes: ""
   });
- 
-  const handleFilterChange = (event) => {
-    const { name, value } = event.target;
- 
-    if (name === "date") {
-      const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
-      setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
-    } else {
-      setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
+
+  const [movie, setMovie] = React.useState(null);
+  const [tickets, setTickets] = React.useState([]);
+
+  React.useEffect(() => {
+    const prePurchaseInfo = JSON.parse(localStorage.getItem("prePurchaseInfo"));
+    if (prePurchaseInfo) {
+      setMovie(prePurchaseInfo);
     }
-  };
+
+    const ticketData = [
+      { type: "Adult", count: 0, price: 10 },
+      { type: "Child", count: 0, price: 6 },
+      { type: "Senior", count: 0, price: 8 },
+    ];
+    setTickets(ticketData);
+  }, []);
+ 
+ 
  
  
   const dispatch = useDispatch();
@@ -68,9 +77,17 @@ function BuyTickets() {
  
   return (
     <div className="tickets-div">
-      <FilterSection filter={filter} setFilter={setFilter} onSubmit={handleSubmit} />
+      <div className="tickets-content">
+        <div className="left-side">
+          <MovieInfoCard />
+        </div>
+        <div className="right-side">
+          <TicketTable tickets={tickets} setTickets={setTickets} />
+        </div>
+      </div>
     </div>
   );
 }
+
  
 export default BuyTickets;

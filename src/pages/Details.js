@@ -11,20 +11,19 @@ export default function DetailsPage() {
   useEffect(() => {
     delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
       setMovieId(res);
-      console.log(res);
+      
     });
   }, []);
 
-  console.log("MOVIES:", MOVIES);
-  console.log("movieId:", movieId);
+  
 
   let movieArr = movieId ? MOVIES.filter((movie) => movie.id === movieId) : [];
-  console.log("movieArr:", movieArr);
+  
   let movie = movieArr && movieArr[0];
 
   const ticketsClick = (movieName, cinema, projectionType, time) => {
     delayFunction(() => {
-      localStorageManager.setItem("prePurchaseInfo", JSON.stringify({
+      localStorageManager.setItem("tickets", JSON.stringify({
         movieName,
         cinema,
         projectionType,
