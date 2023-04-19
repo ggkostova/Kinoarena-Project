@@ -66,3 +66,34 @@
 .movie-details button .link {
   text-decoration: none;
 }
+
+.cinema-projections-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cinema-projections-table th,
+.cinema-projections-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.cinema-projections-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.projection-time-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}

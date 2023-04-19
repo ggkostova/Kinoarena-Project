@@ -1,0 +1,62 @@
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .ticket-table th,
+  .ticket-table td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 12px;
+  }
+  
+  .ticket-table th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .ticket-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .ticket-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* ...existing styles... */
+
+
+  .count-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .count-input {
+    width: 10px;
+    text-align: center;
+    margin: 0 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px;
+  }
+  
+  button {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #34495e;
+  }
+  
+  button:active {
+    background-color: #2c3e50;
+  }
