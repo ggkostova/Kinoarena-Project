@@ -9,7 +9,6 @@ import { Link, useNavigate } from "react-router-dom";
 import FilterSection from "../services/FilterSection";
 import localStorageManager from "../services/LocalStorageManager";
 
-
 function HomePage() {
     function buyTicket(cinema, movieName, date, projectionType, projectionTimes, username) {
         const ticket = {
@@ -58,16 +57,20 @@ function HomePage() {
     };
 
     useEffect(() => {
-        const filteredMovies = MOVIES.filter(
-          (movie) =>
-            (!filter.city || movie.city === filter.city) &&
-            (!filter.movieName || movie.name === filter.movieName) && 
-            (!filter.date || movie.date === filter.date) &&
-            (!filter.projectionType || movie.projectionType === filter.projectionType) &&
-            (!filter.projectionTimes || movie.projectionTimes.includes(filter.projectionTimes)) &&
-            (!filter.cinema || movie.cinema === filter.cinema) 
-        );
-        setMovies(filteredMovies);
+        if( filter.cinema === "default"){
+            setMovies(MOVIES);
+        }else{
+            const filteredMovies = MOVIES.filter(
+              (movie) =>
+                (!filter.city || movie.city === filter.city) &&
+                (!filter.movieName || movie.name === filter.movieName) && 
+                (!filter.date || movie.date === filter.date) &&
+                (!filter.projectionType || movie.projection_type === filter.projectionType) &&
+                (!filter.projectionTimes || movie.projectionTimes.includes(filter.projectionTimes)) &&
+                (!filter.cinema || movie.cinema === filter.cinema) 
+            );
+            setMovies(filteredMovies);
+        }
     }, [filter]);
 
     return (

@@ -3,17 +3,43 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 80vw;
+    width: 65vw;
     position: relative;
-    margin: 0;
+    margin-top: 80px;
   }
   .filter-form{
+    margin-top: 70px;
     height: 200px;
+  }
+  select {
+    border: none;
+    background-color: #dcdcdc;
+    opacity: 0.8;
+    padding: 10px;
+    font-size: 16px;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  select:focus {
+    outline: none;
+  }
+  
+  select option {
+    background-color: #dcdcdc;
+    opacity: 0.8;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
   }
   select {
     font-size: 16px;
     padding: 5px;
-    margin-right: 10px;
+    margin: 0px 10px 100px 0;
     width: 40%;
   }
 
