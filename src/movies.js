@@ -11,7 +11,7 @@ const MOVIES = [
         "image_src": "https://cdn.vox-cdn.com/thumbor/Kr_zFMNcZmn28_TBF-8YYlhD9gw=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11694967/0_c9S8ajFBpwX89ZuU.jpeg",
         "cinemas": [
             {
-                "name": "КИНО АРЕНА THE MALL",
+                "name": "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -28,7 +28,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА МОЛ ВАРНА",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -54,7 +54,7 @@ const MOVIES = [
         "image_src": "https://images-ext-1.discordapp.net/external/dlnJDHX-YdR7zQ0CBl1bPcj2gSGpoQvctwisep9ctJQ/https/m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw%40%40._V1_.jpg?width=825&height=1222",
         "cinemas": [
             {
-                "name": "КИНО АРЕНА THE MALL",
+                "name": "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -71,7 +71,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА МОЛ ВАРНА",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -175,7 +175,7 @@ const MOVIES = [
         "image_src": "https://images-ext-2.discordapp.net/external/T45CdIStMAQTZSnGlkoX8ZGPSQJT5BT8MvVT4KR4RdE/https/m.media-amazon.com/images/I/81wrPiZFKIL._RI_.jpg?width=917&height=1222",
         "cinemas": [
             {
-                "name": "КИНО АРЕНА THE MALL",
+                "name": "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -235,7 +235,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА GRAND MALL ВАРНА",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -278,7 +278,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА GRAND MALL ВАРНА",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -321,7 +321,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА GRAND MALL ВАРНА",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -390,7 +390,7 @@ const MOVIES = [
         "image_src": "https://images-ext-1.discordapp.net/external/-6NyHv74hiZMDAgn7A71aktRIwYjL3UkDN-foTBbrbk/https/m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY%40._V1_.jpg?width=822&height=1220",
         "cinemas": [
             {
-                "name": "КИНО АРЕНА THE MALL",
+                "name": "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ",
                 "projection_types": [
                     {
                         "type": "2D",
@@ -407,7 +407,7 @@ const MOVIES = [
                 ]
             },
             {
-                "name": "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+                "name": "КИНО АРЕНА THE MALL",
                 "projection_types": [
                     {
                         "type": "2D",

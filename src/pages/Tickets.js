@@ -93,9 +93,10 @@ function BuyTickets() {
           {movie && <MovieInfoCard movie={movie} />}
         </div>
         <div className="right-side">
-          <TicketTable tickets={tickets} onTotalChange={handleTotalChange} />
+        <TicketTable tickets={tickets} setTickets={setTickets} onTotalChange={handleTotalChange} />
+
           <div className="total-price">
-            <p>Total: {total}</p>
+            <p>Total: {total}$</p>
           </div>
           <button className="choose-seats-btn" onClick={handleSubmit}>
             Choose seats

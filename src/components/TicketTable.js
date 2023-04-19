@@ -1,11 +1,17 @@
 import React from 'react';
 import "./TicketsTable.css"
 
-function TicketTable({ tickets, setTickets }) {
+function TicketTable({ tickets, setTickets, onTotalChange }) {
+    const updateTotal = (updatedTickets) => {
+        const newTotal = updatedTickets.reduce((sum, ticket) => sum + ticket.count * ticket.price, 0);
+        onTotalChange(newTotal);
+      };
+
     const handleIncrease = (index) => {
       const newTickets = [...tickets];
       newTickets[index].count += 1;
       setTickets(newTickets);
+      updateTotal(newTickets);
     };
   
     const handleDecrease = (index) => {
@@ -13,6 +19,7 @@ function TicketTable({ tickets, setTickets }) {
         const newTickets = [...tickets];
         newTickets[index].count -= 1;
         setTickets(newTickets);
+        updateTotal(newTickets);
       }
     };
 
