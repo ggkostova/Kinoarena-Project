@@ -11,7 +11,6 @@ function LoginPage() {
     const [error, setError] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
 
-
     const handleUsername = (event) => {
         let res = event.target.value;
         res.trim();

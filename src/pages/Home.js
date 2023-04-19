@@ -4,7 +4,6 @@ import MOVIES from "../movies";
 import Card from "../components/MovieCard";
 import { useDispatch } from "react-redux";
 import { setTicketInfo } from "../store/ticketSlice";
-
 import MovieBanner from "../components/MovieBanner";
 import { useNavigate } from "react-router-dom";
 import FilterSection from "../services/FilterSection";
@@ -38,10 +37,9 @@ function HomePage(props) {
         cinema: ""
     });
 
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -61,29 +59,29 @@ function HomePage(props) {
 
     useEffect(() => {
         if (filter.cinema === "default") {
-          setMovies(MOVIES);
+            setMovies(MOVIES);
         } else {
-          const filteredMovies = MOVIES.filter(
-            (movie) =>
-              (!filter.projectionType ||
-                movie.cinemas.some(
-                  (cinema) =>
-                    cinema.projection_types.some(
-                      (projection_type) =>
-                        projection_type.type === filter.projectionType
-                    )
-                )) &&
-              (!filter.cinema || movie.cinemas.some((cinema) => cinema.name === filter.cinema))
-          );
-          setMovies(filteredMovies);
+            const filteredMovies = MOVIES.filter(
+                (movie) =>
+                    (!filter.projectionType ||
+                        movie.cinemas.some(
+                            (cinema) =>
+                                cinema.projection_types.some(
+                                    (projection_type) =>
+                                        projection_type.type === filter.projectionType
+                                )
+                        )) &&
+                    (!filter.cinema || movie.cinemas.some((cinema) => cinema.name === filter.cinema))
+            );
+            setMovies(filteredMovies);
         }
-      }, [filter]);
+    }, [filter]);
 
-    const handleCardClick = (movieId) => {
-        console.log(movieId);
-        props.setMovieId(movieId);
+    const handleCardClick = () => {
+        props.setMovieId(props.movieId);
+        console.log(props.movieId);
         navigate("/details");
-      };
+    };
 
     return (
         <div className="movie-page">
@@ -99,10 +97,10 @@ function HomePage(props) {
                 <div className="movie-list">
                     {movies && movies.map(movie => (
                         <Card
-                        key={movie.id}
-                        movie={movie}
-                        onClick={() => handleCardClick(movie.id)}
-                        
+                            key={movie.id}
+                            movie={movie}
+                            onClick={() => handleCardClick(movie.id)}
+
                         />
                     ))}
                 </div>

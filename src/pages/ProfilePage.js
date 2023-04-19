@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ProfilePage.css";
 import localStorageManager from "../services/LocalStorageManager";
 import { Link } from "react-router-dom";
+import userManager from "../services/UserManager";
 
 const ProfilePage = () => {
     const [loggedUser, setLoggedUser] = useState(null);
@@ -20,7 +21,7 @@ const ProfilePage = () => {
     }, []);
 
     const handleLogout = () => {
-        localStorageManager.removeItem('loggedUser');
+        userManager.logout();
     };
 
     if (!loggedUser) {

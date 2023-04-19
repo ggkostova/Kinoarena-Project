@@ -19,13 +19,13 @@
     font-weight: bold;
   }
   
-  .ticket-table tr:nth-child(even) {
+  /* .ticket-table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
-  .ticket-table tr:hover {
+   */
+  /* .ticket-table tr:hover {
     background-color: #f1f1f1;
-  }
+  } */
   
   /* ...existing styles... */
 

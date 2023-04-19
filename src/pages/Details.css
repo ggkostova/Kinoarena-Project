@@ -1,11 +1,12 @@
 .detail-card {
   display: flex;
-  background: rgb(209, 207, 207);
+  background: rgb(2, 2, 2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow: hidden;
   margin: 16px;
-
+  opacity: 0.8;
+  color: #ffffff;
 }
 
 .detail-card-left {
@@ -57,7 +58,7 @@
 .movie-details button {
   padding: 8px;
   background: linear-gradient(90deg, rgba(85, 18, 130, 1) 0%, rgba(37, 67, 149, 1) 50%, rgba(9, 101, 108, 1) 100%);
-  color: #000000;
+  color: #ffffff;
   border: none;
   border-radius: 7px;
   cursor: pointer;
@@ -85,7 +86,7 @@
 }
 
 .projection-time-btn {
-  background-color: #4CAF50;
+  background-color: #501c1c;
   color: white;
   padding: 5px 10px;
   margin: 5px;
@@ -96,4 +97,7 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
+}
+td{
+  color: #fff;
 }

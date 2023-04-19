@@ -2,6 +2,7 @@ import './Seats.css';
 import React, { useState } from "react";
 import { useSelector, useDispatch  } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
+import seat from  "../seat.png";
 
 function Seat({ row, seat, isReserved, isSelected, onSelect }) {
   const handleClick = () => {
@@ -9,7 +10,7 @@ function Seat({ row, seat, isReserved, isSelected, onSelect }) {
       onSelect(row, seat);
     }
   };
-  
+
  return (
     <div
       className={`seat ${isReserved ? "reserved" : ""} ${
