@@ -98,6 +98,8 @@ function CinemaHall(props) {
  
     const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
     const latestTicket = tickets[tickets.length - 1];
+
+    console.log('Latest ticket:', latestTicket);
  
  
     const { projectionType, projectionTimes } = latestTicket || {};
