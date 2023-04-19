@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setTicketInfo } from "../store/ticketSlice";
 
 import MovieBanner from "../components/MovieBanner";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FilterSection from "../services/FilterSection";
 import localStorageManager from "../services/LocalStorageManager";
 
@@ -60,21 +60,24 @@ function HomePage(props) {
     };
 
     useEffect(() => {
-        if( filter.cinema === "default"){
-            setMovies(MOVIES);
-        }else{
-            const filteredMovies = MOVIES.filter(
-              (movie) =>
-                (!filter.city || movie.city === filter.city) &&
-                (!filter.movieName || movie.name === filter.movieName) && 
-                (!filter.date || movie.date === filter.date) &&
-                (!filter.projectionType || movie.projection_type === filter.projectionType) &&
-                (!filter.projectionTimes || movie.projectionTimes.includes(filter.projectionTimes)) &&
-                (!filter.cinema || movie.cinema === filter.cinema) 
-            );
-            setMovies(filteredMovies);
+        if (filter.cinema === "default") {
+          setMovies(MOVIES);
+        } else {
+          const filteredMovies = MOVIES.filter(
+            (movie) =>
+              (!filter.projectionType ||
+                movie.cinemas.some(
+                  (cinema) =>
+                    cinema.projection_types.some(
+                      (projection_type) =>
+                        projection_type.type === filter.projectionType
+                    )
+                )) &&
+              (!filter.cinema || movie.cinemas.some((cinema) => cinema.name === filter.cinema))
+          );
+          setMovies(filteredMovies);
         }
-    }, [filter]);
+      }, [filter]);
 
     const handleCardClick = (movieId) => {
         console.log(movieId);

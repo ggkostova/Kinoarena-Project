@@ -6,8 +6,8 @@ import logo from  "../logo.png";
 function NavigationBar() {
 
     return (
-        <div className="navigation-div">
-            <nav>
+        <div className="nav-div">
+            <nav className="nav-bar">
                 <ul>
                     <li>
                         <span>

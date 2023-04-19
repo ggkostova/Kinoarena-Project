@@ -14,18 +14,20 @@
   select {
     border: none;
     background-color: #dcdcdc;
-    opacity: 0.8;
-    padding: 10px;
-    font-size: 16px;
+    opacity: 0.6;
     color: #000000;
     border-radius: 5px;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-  
-  select:focus {
+    font-size: 16px;
+    padding: 5px;
+    margin: 0px 10px 100px 0;
+    width: 40%;
+}
+
+select:focus {
     outline: none;
   }
   
@@ -35,12 +37,6 @@
     color: #333;
     font-size: 16px;
     padding: 10px;
-  }
-  select {
-    font-size: 16px;
-    padding: 5px;
-    margin: 0px 10px 100px 0;
-    width: 40%;
   }
 
   .calendar{

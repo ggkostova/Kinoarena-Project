@@ -28,13 +28,20 @@ function App() {
   const [movieId, setMovieId] = useState("");
   const [movie, setMovie] = useState("");
   const [user, setUser] = useState(false);
-
+  setInterval(()=>{
+    const logged = userManager.isUserLoggedIn();
+    setUser(logged);
+  },100);
+  
   useEffect(() => {
-    setInterval(()=>{
-      const logged = userManager.isUserLoggedIn();
-      setUser(logged);
-    },100);
-  },[])
+    if(user){
+      console.log(user);
+    }
+    // setInterval(()=>{
+    //   const logged = userManager.isUserLoggedIn();
+    //   setUser(logged);
+    // },100);
+  },[user])
 
   useEffect(() => {
     const getId = async () => {

@@ -26,12 +26,17 @@
     flex-wrap: wrap;
     margin: 0;
     margin-bottom: 100px;
+    position: relative;
+    left: 2em;
 }
 
 .movie-list-section {
     overflow: auto;
     padding: 0 4%;
-    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .movie {

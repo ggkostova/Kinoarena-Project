@@ -1,19 +1,19 @@
-.navigation-div {
+.nav-div{
   background: black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-nav {
-  color: #fff;
+.nav-bar {
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   width: 65%;
 }
-nav li span, span{
+.nav-bar li span, span{
   display: inline-block;
   width: 70px;
 }
@@ -25,7 +25,7 @@ nav li span, span{
   font-size: 18px;
 }
 
-nav ul {
+.nav-bar ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -33,25 +33,25 @@ nav ul {
   align-items: center;
 }
 
-nav ul li {
+.nav-bar ul li {
   margin-right: 20px;
 }
 
-nav ul li:last-child {
+.nav-bar ul li:last-child {
   margin-right: 0;
 }
 
-nav a {
+.nav-bar a {
   color: #fff;
   text-decoration: none;
 }
 
-nav img {
+.nav-bar img {
   position: "relative";
   left: "-20px";
 }
 
-nav img:hover{
+.nav-bar img:hover{
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }

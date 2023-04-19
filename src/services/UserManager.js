@@ -1,4 +1,6 @@
 import localStorageManager from './LocalStorageManager';
+import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 
 class User {
     constructor(username, age, password) {
@@ -26,58 +28,47 @@ class UserManager {
             }
         })();
     }
-        
-    loggedUser = null;    
 
-    isUserLoggedIn = () =>{
-        if(this.loggedUser){
+    loggedUser = null;
+    errorMessage = '';
+
+    isUserLoggedIn = () => {
+        if (this.loggedUser) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
+
     login = (username, password) => {
-        localStorageManager.getItem("users")
+        return localStorageManager.getItem("users")
             .then(users => {
                 let existingUser = users && users.find(user => user.username === username && user.password === password);
                 if (existingUser) {
                     this.loggedUser = existingUser;
                     localStorageManager.setItem("loggedUser", existingUser);
+                    return true;
                 } else {
-                    alert("there is no such user!")
-                }
-            })  
-    }    
-
-    register = (username, age, password, confirmPassword) => {
-        localStorageManager.getItem("users")
-            .then(users => {
-                let existingUser = users.find(user => user.username === username);
-                if (!existingUser) {
-                    if(password === confirmPassword){
-                        this.users.push(new User(username, age, password));
-                        localStorageManager.setItem('users', this.users);
-                        return true;
-                    }else{
-                        alert("The password and confirm password must be equal.");
-                        return false;    
-                    }
-                } else {
-                    alert("There is already user with this username.");
                     return false;
                 }
-            }) 
-            .catch(error => {
-                console.error(error);
-                return false;
-            });
+            })
     }
 
-    logout = () =>{
+    register = (username, age, password) => {
+        return localStorageManager.getItem("users")
+            .then((users) => {
+                let newUser = new User(username.trim(), age, password);
+                users.push(newUser);
+                localStorageManager.setItem('users', users);
+            })
+    }
+
+
+    logout = () => {
         localStorageManager.removeItem("loggedUser");
     }
-}
+};
 
 let userManager = new UserManager();
 
