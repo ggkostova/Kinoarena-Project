@@ -14,9 +14,8 @@ const MovieBanner = () => {
   }, []);
 
   return (
-    <div className="movie-banner" style={{ textAlign: "center" }}>
+    <div className="movie-banner">
       <img
-        style={{ width: "90vw" }}
         src={BANNERS[currentImageIndex]}
         alt={"Movie Banner"}
       />

@@ -1,32 +1,55 @@
-.movie-card {
-  background: rgb(226, 226, 226);
+.movie-card-container {
+  background: rgb(32, 29, 29);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
-  }
-  
-  .movie-card-img {
-    width: 80%;
-    height: 280px;
-  }
-  
-  .card h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .movie-card-btn{
-    background: linear-gradient(90deg, rgba(85,18,130,1) 0%, rgba(37,67,149,1) 50%, rgba(9,101,108,1) 100%);
-    margin-left: 20px;
-    border-radius: 10px;
-    height: 30px;
-  }
-  
+  color: white;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  opacity: 0.9;
+  margin-bottom: 1.3em;
+}
+
+.movie-card-container:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.movie-card-img {
+  width: 80%;
+  height: 280px;
+}
+
+.movie-card img {
+  opacity: 1;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.movie-card-btn {
+  background: rgb(143, 14, 14);
+  margin-left: 20px;
+  border-radius: 10px;
+  height: 30px;
+  position: relative;
+  left: 21%;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+}
+.movie-card-btn:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: rgb(106, 10, 10);
+}

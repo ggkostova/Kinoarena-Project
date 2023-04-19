@@ -6,20 +6,26 @@ import logo from  "../logo.png";
 function NavigationBar() {
 
     return (
-        <div>
+        <div className="navigation-div">
             <nav>
                 <ul>
                     <li>
-                        <Link to="/cinemas">Cinemas</Link>
+                        <span>
+                            <Link className="nav-link" to="/cinemas">Cinemas</Link>
+                        </span>
                     </li>
                     <li>
-                        <Link to="/program">Program</Link>
+                        <span>
+                            <Link className="nav-link" to="/program">Program</Link>
+                        </span>
                     </li>
                 </ul>
-                <Link to="/">
-                    <img src={logo} alt="Logo" style={{ width: "90x", height: "60px"}}/>
+                <Link className="title" to="/">
+                    <img src={logo} alt="Logo" style={{ width: "110x", height: "80px"}}/>
                 </Link>
-                <Link to="/login">Sign in</Link>
+                <span>
+                    <Link className="nav-link" to="/login">Sign in</Link>
+                </span>
             </nav>
         </div>
     );

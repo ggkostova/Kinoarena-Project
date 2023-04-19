@@ -8,39 +8,40 @@ import { Link, useNavigate } from "react-router-dom";
 import MOVIES from "../movies";
 import "./FilterSection.css";
 
-function FilterSection({ filter, setFilter }) {
-    const [projectionTypes, setProjectionTypes] = useState([]);
-    const [projectionTimes, setProjectionTimes] = useState([]);
+function FilterSection({ filter, setFilter, movies, setMovies}) {
+    // const [projectionTypes, setProjectionTypes] = useState([]);
+    // const [projectionTimes, setProjectionTimes] = useState([]);
 
-    useEffect(() => {
-        const selectedMovie = MOVIES.find((movie) => movie.name === filter.movieName);
-        if (selectedMovie) {
-            setProjectionTypes(selectedMovie.projection_types);
-        } else {
-            setProjectionTypes([]);
-        }
-    }, [filter.movieName]);
+    // useEffect(() => {
+    //     const selectedMovie = MOVIES.find((movie) => movie.name === filter.movieName);
+    //     if (selectedMovie) {
+    //         setProjectionTypes(selectedMovie.projection_types);
+    //     } else {
+    //         setProjectionTypes([]);
+    //     }
+    // }, [filter.movieName]);
 
-    useEffect(() => {
-        const selectedProjectionType = projectionTypes.find(
-            (pt) => pt.type === filter.projectionType
-        );
-        if (selectedProjectionType) {
-            setProjectionTimes(selectedProjectionType.times);
-        } else {
-            setProjectionTimes([]);
-        }
-    }, [filter.projectionType, projectionTypes]);
+    // useEffect(() => {
+    //     const selectedProjectionType = projectionTypes.find(
+    //         (pt) => pt.type === filter.projectionType
+    //     );
+    //     if (selectedProjectionType) {
+    //         setProjectionTimes(selectedProjectionType.times);
+    //     } else {
+    //         setProjectionTimes([]);
+    //     }
+    // }, [filter.projectionType, projectionTypes]);
 
     const handleFilterChange = (event) => {
         const { name, value } = event.target;
+        setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
       
-        if (name === "date") {
-          const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
-          setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
-        } else {
-          setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
-        }
+        // if (name === "date") {
+        //   const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
+        //   setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
+        // } else {
+        // }
+       
       };
    
 
@@ -73,21 +74,6 @@ function FilterSection({ filter, setFilter }) {
                     </option>
                 </select>
                 <select
-                    id="movieName"
-                    name="movieName"
-                    value={filter.movieName}
-                    onChange={handleFilterChange}
-                    required
-                    style={{ height: '30px' }}
-                >
-                    <option value="">Choose movie...</option>
-                    {Object.entries(MOVIES).map(([_, movie]) => (
-                        <option key={movie.name} value={movie.name}>
-                            {movie.name}
-                        </option>
-                    ))}
-                </select>
-                <select
                     id="projectionType"
                     name="projectionType"
                     value={filter.projectionType}
@@ -95,38 +81,11 @@ function FilterSection({ filter, setFilter }) {
                     required
                     style={{ height: "30px" }}
                 >
-                    <option value="">Choose projection type...</option>
-                    {projectionTypes.map((pt) => (
-                        <option key={pt.type} value={pt.type}>
-                            {pt.type}
-                        </option>
-                    ))}
+                    <option value="default">Choose projection type...</option>
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                    <option value="IMAX">IMAX</option>
                 </select>
-                <select
-                    id="projectionTimes"
-                    name="projectionTimes"
-                    value={filter.projectionTimes}
-                    onChange={handleFilterChange}
-                    required
-                    style={{ height: "30px" }}
-                >
-                    <option value="">Choose projection time...</option>
-                    {projectionTimes.map((time) => (
-                        <option key={time} value={time}>
-                            {time}
-                        </option>
-                    ))}
-                </select>
-                <Calendar
-                    id="date"
-                    name="date"
-                    className="calendar"
-                    value={new Date(filter.date)}
-                    onChange={handleFilterChange}
-                    placeholder="Choose date..."
-                    dateFormat="yy-mm-dd"
-                    required
-                />
             </div>
         </form>
     );
