@@ -4,12 +4,13 @@ import MOVIES from "../movies";
 import Card from "../components/MovieCard";
 import { useDispatch } from "react-redux";
 import { setTicketInfo } from "../store/ticketSlice";
+
 import MovieBanner from "../components/MovieBanner";
 import { Link, useNavigate } from "react-router-dom";
 import FilterSection from "../services/FilterSection";
 import localStorageManager from "../services/LocalStorageManager";
 
-function HomePage() {
+function HomePage(props) {
     function buyTicket(cinema, movieName, date, projectionType, projectionTimes, username) {
         const ticket = {
             cinema: cinema,
@@ -39,6 +40,8 @@ function HomePage() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -73,6 +76,12 @@ function HomePage() {
         }
     }, [filter]);
 
+    const handleCardClick = (movieId) => {
+        console.log(movieId);
+        props.setMovieId(movieId);
+        navigate("/details");
+      };
+
     return (
         <div className="movie-page">
             <div className="movie-adds-section">
@@ -87,8 +96,10 @@ function HomePage() {
                 <div className="movie-list">
                     {movies && movies.map(movie => (
                         <Card
-                            key={movie.id}
-                            movie={movie}
+                        key={movie.id}
+                        movie={movie}
+                        onClick={() => handleCardClick(movie.id)}
+                        
                         />
                     ))}
                 </div>

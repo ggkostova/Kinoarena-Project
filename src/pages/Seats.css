@@ -51,7 +51,7 @@
     left: 44%;
   }
   
-  .seats-p{
+  .seats-p {
     background-color: rgb(41, 39, 39);
     color: white;
     width: 500px;
@@ -61,4 +61,7 @@
     position: relative;
     left: 33.5%;
     padding-left: 15%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
   }

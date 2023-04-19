@@ -17,7 +17,7 @@ function TicketTable({ tickets, setTickets }) {
     };
 
   return (
-    <table className="ticket-table">
+     <table className="ticket-table">
     <thead>
       <tr>
         <th>Ticket Type</th>

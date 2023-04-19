@@ -1,9 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import ticketSlice from './ticketSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import ticketReducer from "./ticketSlice";
+import movieIdReducer from "./movieIdSlice";
 
 const store = configureStore({
   reducer: {
-    ticket: ticketSlice,
+    ticket: ticketReducer,
+    movieId: movieIdReducer,
   },
 });
 

@@ -1,26 +1,17 @@
-import React from 'react';
+import React from "react";
 import "./MovieInfoCard.css";
 
-function MovieInfoCard() {
-  const [movie, setMovie] = React.useState(null);
-
-  React.useEffect(() => {
-    const prePurchaseInfo = JSON.parse(localStorage.getItem("tickets"));
-    if (prePurchaseInfo) {
-      setMovie(prePurchaseInfo);
-    }
-  }, []);
-
-  console.log(movie);
-
+function MovieInfoCard({ movie }) {
   if (!movie) return null;
+
+  const ticketInfo = JSON.parse(movie);
 
   return (
     <div className="movie-card">
-      <h3>{movie.movieName}</h3>
-      <p>Cinema: {movie.cinema}</p>
-      <p>Time: {movie.time}</p>
-      <p>Projection Type: {movie.projectionType}</p>
+      <h3>{ticketInfo.movieName}</h3>
+      <p>Cinema: {ticketInfo.cinema}</p>
+      <p>Time: {ticketInfo.time}</p>
+      <p>Projection Type: {ticketInfo.projectionType}</p>
     </div>
   );
 }

@@ -19,11 +19,14 @@ import CINEMAS from './cinemas';
 import MOVIES from './movies';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import delayFunction from './DelayFunction';
 
 function App() {
   localStorageManager.setItem("cinemas", CINEMAS);
   localStorageManager.setItem("movies", MOVIES);
-
+  
+  const [movieId, setMovieId] = useState("");
+  const [movie, setMovie] = useState("");
   const [user, setUser] = useState(false);
 
   useEffect(() => {
@@ -33,16 +36,40 @@ function App() {
     },100);
   },[])
 
+  useEffect(() => {
+    const getId = async () => {
+       await delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
+            setMovieId(res);
+            console.log(res);
+          });
+    }
+    getId();
+  }, []);
+
+  
+  useEffect(() => {
+      setMovie(MOVIES.find((m) => m.id === movieId));
+      console.log(movieId);
+    
+  }, [movieId]);
+
+  useEffect(() => {
+    if(!movie){
+      console.log(movie);
+    }
+  }, [movie]);
+
+
   return <>
   <Provider store ={store}>
   {user ? <NavigationLoggedBar/> : <NavigationBar />}
     <Routes>
       <Route index element={<Navigate to={'/home'} />}></Route>
-      <Route path="/home" element={<HomePage/>}></Route>      
+      <Route path="/home" element={<HomePage setMovieId={setMovieId}/>}></Route>      
       <Route path="/cinemas" element={<CinemasPage/>}></Route>    
       <Route path="/program" element={<ProgramPage/>}></Route>  
       <Route path="/tickets" element={<BuyTickets/>}></Route>
-      <Route path="/details" element={<DetailsPage/>}></Route>  
+      <Route path="/details" element={movie && <DetailsPage movieId={movieId} movie={movie}/>}></Route>  
       <Route path="/seats" element={<CinemaHall cinema={"XXX"} movieName={"Bobo"} date={"06.06"} username={"goshko"}/> }></Route>     
       <Route path="/profile" element={<ProfilePage/>}></Route> 
       <Route path="/login" element={<LoginPage/>}></Route> 

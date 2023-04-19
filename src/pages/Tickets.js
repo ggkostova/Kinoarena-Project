@@ -21,7 +21,12 @@ function buyTicket(cinema, movieName, date, projectionType, projectionTimes, use
     username: username,
   };
  
-  const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+  let tickets = JSON.parse(localStorage.getItem("tickets"));
+
+  // Ensure tickets is always an array
+  if (!Array.isArray(tickets)) {
+    tickets = [];
+  }
  
   tickets.push(ticket);
  
@@ -32,6 +37,7 @@ function BuyTickets() {
   const [filter, setFilter] = React.useState({
     cinema: "",
     movieName: "",
+    date: "",
     projectionType: "",
     projectionTimes: ""
   });
@@ -40,7 +46,8 @@ function BuyTickets() {
   const [tickets, setTickets] = React.useState([]);
 
   React.useEffect(() => {
-    const prePurchaseInfo = JSON.parse(localStorage.getItem("prePurchaseInfo"));
+    const prePurchaseInfo = JSON.parse(localStorage.getItem("tickets"));
+    console.log(prePurchaseInfo);
     if (prePurchaseInfo) {
       setMovie(prePurchaseInfo);
     }
@@ -53,7 +60,11 @@ function BuyTickets() {
     setTickets(ticketData);
   }, []);
  
- 
+  const [total, setTotal] = React.useState(0);
+
+  const handleTotalChange = (newTotal) => {
+    setTotal(newTotal);
+  };
  
  
   const dispatch = useDispatch();
@@ -79,10 +90,16 @@ function BuyTickets() {
     <div className="tickets-div">
       <div className="tickets-content">
         <div className="left-side">
-          <MovieInfoCard />
+          {movie && <MovieInfoCard movie={movie} />}
         </div>
         <div className="right-side">
-          <TicketTable tickets={tickets} setTickets={setTickets} />
+          <TicketTable tickets={tickets} onTotalChange={handleTotalChange} />
+          <div className="total-price">
+            <p>Total: {total}</p>
+          </div>
+          <button className="choose-seats-btn" onClick={handleSubmit}>
+            Choose seats
+          </button>
         </div>
       </div>
     </div>
