@@ -1,38 +1,47 @@
-import React from "react";
-import './Details.css';
+import React, { useState, useEffect } from "react";
+import "./Details.css";
 import MOVIES from "../movies";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import localStorageManager from "../services/LocalStorageManager";
-import {useState, useEffect} from "react";
 import delayFunction from "../DelayFunction";
 
-export default function DetailsPage({ cinemas, projections }) {
-    const [movies, setMovies] = useState('');
-    const [movieId, setMovieId] = useState('');
+export default function DetailsPage() {
+  const [movieId, setMovieId] = useState("");
 
-    useEffect(() => {
-        delayFunction(localStorageManager.getItem, ["movies"])
-        .then((res) => {
-            setMovies(res);
-        });
+  useEffect(() => {
+    delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
+      setMovieId(res);
+      console.log(res);
+    });
+  }, []);
 
-        delayFunction(localStorageManager.getItem, ["detailsId"])
-        .then((res) => {
-            setMovieId(res);
-        })
-    },[])
+  console.log("MOVIES:", MOVIES);
+  console.log("movieId:", movieId);
 
-    let movieArr = movies && movies.filter(movie => movie.id === movieId);
-    let movie = movieArr && movieArr[0];
+  let movieArr = movieId ? MOVIES.filter((movie) => movie.id === movieId) : [];
+  console.log("movieArr:", movieArr);
+  let movie = movieArr && movieArr[0];
 
-    const ticketsClick = () => {
-        delayFunction(() => localStorageManager.setItem('ticketsId', movieId), []);
-    }
+  const ticketsClick = (movieName, cinema, projectionType, time) => {
+    delayFunction(() => {
+      localStorageManager.setItem("prePurchaseInfo", JSON.stringify({
+        movieName,
+        cinema,
+        projectionType,
+        time
+      }));
+    }, []);
+  };
+
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
 
     return (
+        <div>
         <div className="detail-card">
             <div className="detail-card-left">
-                <img src={movie && movie['image_src']} alt="Movie Poster" className="movie-poster" />
+                <img src={movie && movie['image_src']} alt="Movie Poster" className="movie-poster" /> 
                 <h2 className="movie-title">{movie && movie.name}</h2>
             </div>
             <div className="movie-card-right">
@@ -42,31 +51,52 @@ export default function DetailsPage({ cinemas, projections }) {
                     <p className="details-p"><strong>Director:</strong> {movie && movie.director}</p>
                     <p className="details-p"><strong>Genre:</strong> {movie && movie.genre}</p>
                     <p className="details-p"><strong>Cast:</strong> {movie && movie.cast}</p>
-                    <button className='movie-card-btn' variant="primary" onClick={ticketsClick}><Link className={'link'} style={{ textDecoration: "none" }} to={{ pathname: '/tickets', state: { id: movie.id } }}>Buy</Link></button>
+                    
                 </div>
-                <table className="cinema-projections-table">
-                    <thead>
-                        <tr>
-                            <th>Cinema</th>
-                            <th>Projections</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cinemas.map((cinema, index) => (
-                            <tr key={index}>
-                                <td>{cinema}</td>
-                                <td>
-                                    {projections.map((projection, pIndex) => (
-                                        <div key={pIndex}>
-                                            {projection.type}: {projection.times.join(', ')}
-                                        </div>
-                                    ))}
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
             </div>
+        </div>
+        
+        <table className="cinema-projections-table">
+        <thead>
+          {/* ... Table header remains the same */}
+        </thead>
+        <tbody>
+          {movie.cinemas && movie.cinemas.map((cinema, index) => (
+            <tr key={index}>
+              <td>{cinema.name}</td>
+              <td>
+                {cinema.projection_types.map((projection, projIndex) => (
+                  <span key={projIndex}>
+                    {projection.type}:
+                    {projection.times.map((time, timeIndex) => (
+                     <Link
+                     to={{
+                       pathname: '/tickets',
+                       state: {
+                         movieName: movie.name,
+                         cinema: cinema.name,
+                         projectionType: projection.type,
+                         time: time,
+                       },
+                     }}
+                   >
+                     <button
+                       key={timeIndex}
+                       className="projection-time-btn" // Add a CSS class for styling
+                       onClick={() => ticketsClick(movie.name, cinema.name, projection.type, time)}
+                     >
+                       {time}
+                     </button>
+                   </Link>
+                    ))}
+                    {projIndex < cinema.projection_types.length - 1 && <br />}
+                  </span>
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
         </div>
     );
 }
