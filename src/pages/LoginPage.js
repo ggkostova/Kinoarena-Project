@@ -29,7 +29,7 @@ function LoginPage() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        userManager.login(username, password).then((res) => {
+        userManager.login(username.trim(), password).then((res) => {
             if(res){
                 navigate("/home");
                 setIsFormValid(true);
