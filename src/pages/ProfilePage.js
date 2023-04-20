@@ -40,7 +40,6 @@ const ProfilePage = () => {
                     <li key={booking.id}>
                         Cinema: {booking.cinema} <br />
                         Movie: {booking.movieName} <br />
-                        Date: {booking.date} <br />
                         Projection Type: {booking.projectionType} <br />
                         Projection Time: {booking.projectionTimes} <br />
                         Seats: {booking.selectedSeats.join(", ")} <br />
