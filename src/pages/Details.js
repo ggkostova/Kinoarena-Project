@@ -9,19 +9,20 @@ import localStorageManager from "../services/LocalStorageManager";
 export default function DetailsPage() {
     const {detailsId} = useParams();
     const ticketsClick = (movieName, cinema, projectionType, time) => {
-        localStorageManager.setItem("tickets", JSON.stringify({
+        localStorage.setItem("tickets", JSON.stringify({
             movieName,
             cinema,
             projectionType,
             time
         }));
+        
     };
 
     const [movie, setMovie] = useState('');
 
     useEffect(() => {
         if (detailsId) {
-            console.log(detailsId);
+            
             setMovie(MOVIES.find((m) => m.id === detailsId));
         }
     }, [detailsId])
