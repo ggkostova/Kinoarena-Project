@@ -37,6 +37,21 @@
   line-height: 1.5;
 }
 
+button {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust the padding as needed */
+  background-color: #4CAF50; /* Set the background color */
+  color: white; /* Set the text color */
+  text-decoration: none; /* Remove the underline from the text */
+  font-size: 16px; /* Set the font size */
+  border: none; /* Remove the border */
+  cursor: pointer; /* Change the cursor style to pointer when hovering */
+}
+
+button:hover {
+  background-color: #45a049; /* Change the background color when hovering */
+}
+
 .movie-card-btn {
   background: rgb(143, 14, 14);
   margin-left: 20px;

@@ -1,0 +1,75 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-list-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.CinemaCard {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 350px;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+.CinemaCard img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.CinemaCard-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.CinemaCard-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.CinemaCard-address {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.CinemaCard-phone {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .movie-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .movie-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+  
+  

@@ -1,36 +1,59 @@
-.cinema-card {
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 95vw;
-    height: 300px;
-    background: rgb(226, 226, 226);
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 7px;
-  }
-  
-  .cinema-card-img {
-    width: 75%;
-    height: 275px;
-    /* object-fit: cover; */
-    margin-right: 16px;
-  }
-  
-  .card-info {
-    /* flex: 1; */
-    font-size: 20px;
-  }
-  .link{
-    direction: none;
-    color: whitesmoke;
-  }
+.CinemaCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+}
 
-  .cinema-card-btn{
-    background: linear-gradient(90deg, rgba(85, 18, 130, 1) 0%, rgba(37, 67, 149, 1) 50%, rgba(9, 101, 108, 1) 100%);
-    position: relative;
-    left: 36%;
-  }
+.cinema-card-img {
+  width: 100%; /* You can adjust this value according to your preference */
+  height: auto;
+  max-width: 300px; /* You can adjust this value according to your preference */
+  object-fit: cover;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-info h2 {
+  position: relative;
+  right: 150px;
+  background-color: #007bff;
+  margin: 0 auto;
+}
+
+.cinema-card-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.cinema-card-btn:hover {
+  background-color: #0056b3;
+}
+
   
