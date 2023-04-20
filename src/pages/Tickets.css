@@ -3,10 +3,13 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background-color: #f8f9fa;
+  padding: 20px 0;
 }
 
 .tickets-content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
@@ -16,44 +19,56 @@
 .left-side,
 .right-side {
   flex: 1;
-  margin: 0 16px;
+  margin: 16px;
+  box-sizing: border-box;
 }
 
 .movie-card {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-table {
   width: 100%;
   border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
 }
 
 .ticket-table th,
 .ticket-table td {
-  border: 1px solid #ccc;
+  padding: 12px 15px;
   text-align: left;
-  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
-.ticket-table th {
-  background-color: #e1e1e1;
+.ticket-table thead tr {
+  background-color: #3f51b5;
+  color: #ffffff;
 }
 
-.ticket-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.ticket-table tbody tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.ticket-table tbody tr:hover {
+  background-color: #f1f1f1;
 }
 
 .total-price {
   text-align: right;
   margin-top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
 }
 
 .choose-seats-btn {
   display: block;
-  background-color: #007bff;
+  background-color: #3f51b5;
   color: white;
   font-size: 16px;
   padding: 8px 16px;
@@ -67,9 +82,5 @@
 }
 
 .choose-seats-btn:hover {
-  background-color: #0056b3;
-}
-
-.total-price {
-  background-color: #ccc;
+  background-color: #283593;
 }

@@ -16,12 +16,12 @@ export default function CinemasPage() {
     },[])
 
     return (
-        <div className="movie-list-section">
+        
         <div className="movie-list">
             {cinemas && cinemas.map((cinema, index) => (
                 <CinemaCard key={index} cinema={cinema} />
             ))}
         </div>
-    </div>
+   
     );
 }

@@ -8,9 +8,11 @@ import userManager from "../services/UserManager";
 function NavigationLoggedBar({ handleLogout }) {
     const { id } = useParams();
 
-    let handleLogoutButton = () => {
+    let handleLogoutButton = (event) => {
+        event.preventDefault();
         userManager.logout();
         handleLogout();
+        window.location.href = "/";
     }
 
     return (
