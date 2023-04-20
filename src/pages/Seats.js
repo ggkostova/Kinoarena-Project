@@ -11,14 +11,14 @@ function Seat({ row, seat, isReserved, isSelected, onSelect }) {
     }
   };
 
+  
+
   return (
-    <div
-      className={`seat ${isReserved ? "reserved" : ""} ${
-        isSelected ? "selected" : ""
-      }`}
+    <div 
+      id={"one-seat"}
+      className={`seat ${isReserved ? "reserved" : ""} ${isSelected ? "selected" : ""}`}
       onClick={handleClick}
     >
-      {seat}
     </div>
   );
 }
@@ -168,7 +168,6 @@ function CinemaHall(props) {
 
   return (
     <div className="cinema-hall-container">
-      <h2>Cinema Hall</h2>
       {showSuccessAlert && (
         <div className="custom-success-alert-overlay">
           <div className="custom-success-alert">
@@ -197,7 +196,7 @@ function CinemaHall(props) {
           </div>
         </div>
       )}
-      <p className="seats-p">Screen</p>
+      <div className="screen"><span>Screen</span></div>
       <SeatLayout
         numRows={10}
         numSeatsPerRow={10}

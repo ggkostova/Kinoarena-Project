@@ -6,7 +6,6 @@ import { setTicketInfo } from "../store/ticketSlice";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-
 import MovieInfoCard from "../components/MovieInfoCard";
 import TicketTable from "../components/TicketTable";
 
@@ -124,7 +123,6 @@ function BuyTickets() {
             setTickets={setTickets}
             onTotalChange={handleTotalChange}
           />
-
           <div className="total-price">
             <p>Total: {totalSum}$</p>
           </div>
