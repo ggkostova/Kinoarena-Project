@@ -10,7 +10,15 @@ import "primeicons/primeicons.css";
 import MovieInfoCard from "../components/MovieInfoCard";
 import TicketTable from "../components/TicketTable";
 
-function buyTicket(cinema, movieName, projectionType,  time, username, totalSum, ticketsCount) {
+function buyTicket(
+  cinema,
+  movieName,
+  projectionType,
+  time,
+  username,
+  totalSum,
+  ticketsCount
+) {
   const ticket = {
     cinema: cinema,
     movieName: movieName,
@@ -22,9 +30,7 @@ function buyTicket(cinema, movieName, projectionType,  time, username, totalSum,
   };
 
   let tickets = JSON.parse(localStorage.getItem("tickets"));
-  // console.log(tickets);
-  // console.log(ticket);
-  
+
   if (!Array.isArray(tickets)) {
     tickets = [];
   }
@@ -44,14 +50,13 @@ function BuyTickets() {
   });
 
   let ticketInfo = JSON.parse(localStorage.getItem("tickets"));
-  
 
   const [movie, setMovie] = React.useState(null);
   const [tickets, setTickets] = React.useState([]);
 
   React.useEffect(() => {
     const prePurchaseInfo = JSON.parse(localStorage.getItem("tickets"));
-    
+
     if (prePurchaseInfo) {
       setMovie(prePurchaseInfo);
     }
@@ -64,17 +69,15 @@ function BuyTickets() {
     setTickets(ticketData);
   }, []);
 
-  
-
   const [totalSum, setTotal] = React.useState(0);
 
   function calculateTotalCount(ticketData) {
     let totalCount = 0;
-  
+
     tickets.forEach((ticket) => {
       totalCount += ticket.count;
     });
-  
+
     return totalCount;
   }
 
@@ -91,9 +94,15 @@ function BuyTickets() {
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
     if (loggedUser) {
-      
-      buyTicket(ticketInfo.cinema, ticketInfo.movieName,  ticketInfo.projectionType, ticketInfo.time, loggedUser, totalSum, calculateTotalCount());
-    
+      buyTicket(
+        ticketInfo.cinema,
+        ticketInfo.movieName,
+        ticketInfo.projectionType,
+        ticketInfo.time,
+        loggedUser,
+        totalSum,
+        calculateTotalCount()
+      );
 
       dispatch(setTicketInfo({ ...filter, username: loggedUser }));
 
@@ -102,7 +111,7 @@ function BuyTickets() {
       alert("You must be logged in to purchase a ticket.");
     }
   };
- 
+
   return (
     <div className="tickets-div">
       <div className="tickets-content">
@@ -110,12 +119,20 @@ function BuyTickets() {
           {movie && <MovieInfoCard movie={movie} />}
         </div>
         <div className="right-side">
-        <TicketTable tickets={tickets} setTickets={setTickets} onTotalChange={handleTotalChange} />
+          <TicketTable
+            tickets={tickets}
+            setTickets={setTickets}
+            onTotalChange={handleTotalChange}
+          />
 
           <div className="total-price">
             <p>Total: {totalSum}$</p>
           </div>
-          <button className="choose-seats-btn" onClick={handleSubmit}>
+          <button
+            className="choose-seats-btn"
+            onClick={handleSubmit}
+            disabled={calculateTotalCount() === 0}
+          >
             Choose seats
           </button>
         </div>
@@ -124,5 +141,4 @@ function BuyTickets() {
   );
 }
 
- 
 export default BuyTickets;
