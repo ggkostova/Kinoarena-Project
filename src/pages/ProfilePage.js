@@ -20,10 +20,6 @@ const ProfilePage = () => {
         setBookingHistory(userBookings);
     }, []);
 
-    const handleLogout = () => {
-        userManager.logout();
-    };
-
     if (!loggedUser) {
         return <div>Loading...</div>;
     }
@@ -47,8 +43,6 @@ const ProfilePage = () => {
                     </li>
                 ))}
             </ul>
-
-            <button className="logout-button" onClick={handleLogout}><Link to={'/home'}>Logout</Link></button>
         </div>
     );
 };

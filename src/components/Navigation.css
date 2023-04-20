@@ -55,3 +55,23 @@
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }
+
+.logout-btn {
+  background: rgb(143, 14, 14);
+  border-radius: 10px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+}
+.logout-btn:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: rgb(106, 10, 10);
+}
+
+.profile-logout-side{
+  display: flex;
+}

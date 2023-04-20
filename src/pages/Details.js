@@ -3,8 +3,8 @@ import "./Details.css";
 import MOVIES from "../movies";
 import { Link, useParams } from "react-router-dom";
 import localStorageManager from "../services/LocalStorageManager";
-import delayFunction from "../DelayFunction";
-import { useSelector } from "react-redux";
+// import delayFunction from "../DelayFunction";
+// import { useSelector } from "react-redux";
 
 export default function DetailsPage() {
     const {detailsId} = useParams();

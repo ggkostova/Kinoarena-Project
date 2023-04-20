@@ -24,57 +24,64 @@ import delayFunction from './DelayFunction';
 function App() {
   localStorageManager.setItem("cinemas", CINEMAS);
   localStorageManager.setItem("movies", MOVIES);
-  
+  const [loggedIn, setLoggedIn] = useState(false);
   const [detailsId, setDetailsId] = useState("");
-  // const [movie, setMovie] = useState("");
-
   const [user, setUser] = useState(false);
-  setInterval(()=>{
-    const logged = userManager.isUserLoggedIn();
-    setUser(logged);
-  },100);
-  
+
   useEffect(() => {
-    if(user){
-      // console.log(user);
+    if (user) {
+      console.log(user);
     }
-    // setInterval(()=>{
-    //   const logged = userManager.isUserLoggedIn();
-    //   setUser(logged);
-    // },100);
-  },[user])
+    setInterval(() => {
+      const logged = userManager.isUserLoggedIn();
+      setUser(logged);
+    }, 100);
+  }, [user])
 
   useEffect(() => {
     const getId = async () => {
-       await delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
-            setDetailsId(res);
-            console.log(res);
-          });
+      await delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
+        setDetailsId(res);
+        console.log(res);
+      });
     }
     getId();
   }, []);
 
-  // useEffect(()=>{
-  //   setDetailsId(localStorage.getItem('detailsId'));
-  // })
+  useEffect(() => {
+    if (user) {
+      handleLogin();
+    } else {
+      handleLogout();
+    }
+  }, [user])
 
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
   return <>
-  <Provider store ={store}>
-  {user ? <NavigationLoggedBar/> : <NavigationBar />}
-    <Routes>
-      <Route index element={<Navigate to={'/home'} />}></Route>
-      <Route path="/home" element={<HomePage movieId={detailsId} setMovieId={(id) => setDetailsId(id)}/>}></Route>      
-      <Route path="/cinemas" element={<CinemasPage/>}></Route>    
-      <Route path="/program" element={<ProgramPage/>}></Route>  
-      <Route path="/tickets" element={<BuyTickets/>}></Route>
-      <Route path="/details/:detailsId" element={<DetailsPage detailsId={detailsId}/>}></Route>  
-      <Route path="/seats" element={<CinemaHall cinema={"XXX"} movieName={"Bobo"} date={"06.06"} username={"goshko"}/> }></Route>     
-      <Route path="/profile" element={<ProfilePage/>}></Route> 
-      <Route path="/login" element={<LoginPage/>}></Route> 
-      <Route path="/register" element={<RegisterPage/>}></Route>
-    </Routes>
-    <Footer/>
-  </Provider> 
+    <Provider store={store}>
+      <div className="app-wrapper">
+        {loggedIn ? <NavigationLoggedBar handleLogout={handleLogout} /> : <NavigationBar />}
+        <Routes>
+          <Route index element={<Navigate to={'/home'} />}></Route>
+          <Route path="/home" element={<HomePage movieId={detailsId} setMovieId={(id) => setDetailsId(id)} />}></Route>
+          <Route path="/cinemas" element={<CinemasPage />}></Route>
+          <Route path="/program" element={<ProgramPage />}></Route>
+          <Route path="/tickets" element={<BuyTickets />}></Route>
+          <Route path="/details/:detailsId" element={<DetailsPage detailsId={detailsId} />}></Route>
+          <Route path="/seats" element={<CinemaHall cinema={"XXX"} movieName={"Bobo"} date={"06.06"} username={"goshko"} />}></Route>
+          <Route path="/profile" element={<ProfilePage />}></Route>
+          <Route path="/login" element={<LoginPage handleLogin={handleLogin} />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+        </Routes>
+      </div>
+      <Footer />
+    </Provider>
   </>;
 }
 

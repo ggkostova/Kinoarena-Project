@@ -4,12 +4,14 @@ import './LoginPage.css';
 import userManager from '../services/UserManager';
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function LoginPage() {
+function LoginPage({handleLogin}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
+    const {id} = useParams();
 
     const handleUsername = (event) => {
         let res = event.target.value;
@@ -33,6 +35,7 @@ function LoginPage() {
                 navigate("/home");
                 setIsFormValid(true);
                 setError('');
+                handleLogin();
             }else{
                 setIsFormValid(false);
                 setError('There is not user with these phragments.');

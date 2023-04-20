@@ -1,5 +1,4 @@
 footer {
-    /* background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(182, 8, 8) 50%, rgb(0, 0, 0) 100%); */
     background-color: black;
     color: #fff;
     display: flex;
@@ -8,7 +7,8 @@ footer {
     font-family: Arial, sans-serif;
     font-size: 14px;
     position: relative;
-    bottom: -20px;
+    /* bottom: -20px; */
+    bottom: 0;
   }
   
   .column {

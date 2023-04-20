@@ -35,14 +35,7 @@ function FilterSection({ filter, setFilter, movies, setMovies}) {
     const handleFilterChange = (event) => {
         const { name, value } = event.target;
         setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
-      
-        // if (name === "date") {
-        //   const dateValue = value instanceof Date ? value.toISOString().split("T")[0] : "";
-        //   setFilter((prevFilter) => ({ ...prevFilter, [name]: dateValue }));
-        // } else {
-        // }
-       
-      };
+    };
    
 
     return (

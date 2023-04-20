@@ -22,7 +22,7 @@ class LocalStorageManager {
         });
     }
     removeItem = (key) => {
-       delayFunction(localStorage.removeItem, key);
+       localStorage.removeItem(key);
     }
 }
 let localStorageManager = new LocalStorageManager();

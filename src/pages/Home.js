@@ -58,9 +58,10 @@ function HomePage(props) {
     };
 
     useEffect(() => {
-        if (filter.cinema === "default") {
+        if (filter.cinema === "default" || filter.projectionType === "default") {
             setMovies(MOVIES);
-        } else {
+        }
+        else {
             const filteredMovies = MOVIES.filter(
                 (movie) =>
                     (!filter.projectionType ||
