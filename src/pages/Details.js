@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Details.css";
 import MOVIES from "../movies";
 import { Link, useParams } from "react-router-dom";
-import localStorageManager from "../services/LocalStorageManager";
-// import delayFunction from "../DelayFunction";
-// import { useSelector } from "react-redux";
 
 export default function DetailsPage() {
-    const {detailsId} = useParams();
+    const { detailsId } = useParams();
     const ticketsClick = (movieName, cinema, projectionType, time) => {
         localStorage.setItem("tickets", JSON.stringify({
             movieName,
@@ -15,14 +12,14 @@ export default function DetailsPage() {
             projectionType,
             time
         }));
-        
+
     };
 
     const [movie, setMovie] = useState('');
 
     useEffect(() => {
         if (detailsId) {
-            
+
             setMovie(MOVIES.find((m) => m.id === detailsId));
         }
     }, [detailsId])
@@ -35,8 +32,8 @@ export default function DetailsPage() {
         <div>
             <div className="detail-card">
                 <div className="detail-card-left">
-                    <img src={movie && movie['image_src']} alt="Movie Poster" className="movie-poster" />
                     <h2 className="movie-title">{movie && movie.name}</h2>
+                    <img src={movie && movie['image_src']} alt="Movie Poster" className="movie-poster" />
                 </div>
                 <div className="movie-card-right">
                     <div className="movie-details">
@@ -48,49 +45,49 @@ export default function DetailsPage() {
 
                     </div>
                 </div>
+                <table className="cinema-projections-table">
+                    <thead>
+                        {/* ... Table header remains the same */}
+                    </thead>
+                    <tbody>
+                        {movie.cinemas && movie.cinemas.map((cinema, index) => (
+                            <tr key={index}>
+                                <td className="details-cinema-name">{cinema.name}</td>
+                                <td className="details-projection-types">
+                                    {cinema.projection_types.map((projection, projIndex) => (
+                                        <span className="projection-type-times" key={projIndex}>
+                                            {projection.type}:
+                                            {projection.times.map((time, timeIndex) => (
+                                                <Link
+                                                    to={{
+                                                        pathname: '/tickets',
+                                                        state: {
+                                                            movieName: movie.name,
+                                                            cinema: cinema.name,
+                                                            projectionType: projection.type,
+                                                            time: time,
+                                                        },
+                                                    }}
+                                                >
+                                                    <button
+                                                        key={timeIndex}
+                                                        className="projection-time-btn"
+                                                        onClick={() => ticketsClick(movie.name, cinema.name, projection.type, time)}
+                                                    >
+                                                        {time}
+                                                    </button>
+                                                </Link>
+                                            ))}
+                                            {projIndex < cinema.projection_types.length - 1 && <br />}
+                                        </span>
+                                    ))}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
 
-            <table className="cinema-projections-table">
-                <thead>
-                    {/* ... Table header remains the same */}
-                </thead>
-                <tbody>
-                    {movie.cinemas && movie.cinemas.map((cinema, index) => (
-                        <tr key={index}>
-                            <td>{cinema.name}</td>
-                            <td>
-                                {cinema.projection_types.map((projection, projIndex) => (
-                                    <span key={projIndex}>
-                                        {projection.type}:
-                                        {projection.times.map((time, timeIndex) => (
-                                            <Link
-                                                to={{
-                                                    pathname: '/tickets',
-                                                    state: {
-                                                        movieName: movie.name,
-                                                        cinema: cinema.name,
-                                                        projectionType: projection.type,
-                                                        time: time,
-                                                    },
-                                                }}
-                                            >
-                                                <button
-                                                    key={timeIndex}
-                                                    className="projection-time-btn" // Add a CSS class for styling
-                                                    onClick={() => ticketsClick(movie.name, cinema.name, projection.type, time)}
-                                                >
-                                                    {time}
-                                                </button>
-                                            </Link>
-                                        ))}
-                                        {projIndex < cinema.projection_types.length - 1 && <br />}
-                                    </span>
-                                ))}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
         </div>
     );
 }

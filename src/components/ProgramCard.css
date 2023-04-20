@@ -1,22 +1,33 @@
 div.program-card {
   display: flex;
-  width: 80em;
+  width: 100%;
   margin: 10px 0;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   height: 16em;
-  background-color: rgb(68, 20, 20);
+  background: rgb(2, 2, 2);
   opacity: 0.8;
   border-radius: 10px;
   align-items: center;
+  position: relative;
+  left: 3%;
 }
-
-.movie-name-h1 {
-  padding-top: 40%;
+.program-projections-table{
+  width: 90%;
+  border-collapse: collapse;
+  position: relative;
+  left: 10px;
+}
+.program-projections-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+.movie-program-h1{
+  font-size: 23px;
+}
+.program-card-header{
   font-size: 20px;
-}
-
-.td-cinema-name{
-  width: 300px;
+  width: 400px;
 }
 
 .program-card img {
@@ -40,7 +51,7 @@ div.program-card {
 
 .projection-type-times {
   display: flex;
-  width: 400px;
+  width: 300px;
   padding-left: 20px;
   align-items: center;
   height: 40px;
@@ -50,8 +61,8 @@ div.program-card {
   margin-bottom: 20px;
   width: 67px;
   justify-self: center;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background-color: rgb(251, 187, 187);
+  color: rgb(0, 0, 0);
   opacity: 1;
   margin-left: 20px;
   position: relative;
@@ -62,7 +73,7 @@ div.program-card {
 .projection-btn-program:hover{
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
-  background-color: black;
+  background-color: rgb(255, 154, 154);
 }
 td{
   padding: 0;

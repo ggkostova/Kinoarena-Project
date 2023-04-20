@@ -20,18 +20,18 @@ function ProgramCard({ movie }) {
                 src={movie.image_src}
                 alt={movie.name}
             />
-            <span className="program-card-header" style={{width: "20%", padding: "0 20px" }}>
-                <h1>{movie.name}</h1>
+            <span className="program-card-header" style={{width: "30%", padding: "0 20px" }}>
+                <h1 className="movie-program-h1">{movie.name}</h1>
             </span>
             <div>
-                <table className="cinema-projections-table">
+                <table className="program-projections-table">
                     <thead>
                         {/* ... Table header remains the same */}
                     </thead>
                     <tbody>
                         {movie.cinemas && movie.cinemas.map((cinema, index) => (
                             <tr className="program-tr" key={index}>
-                                <td className="td-cinema-name">{cinema.name}</td>
+                                <td className="program-cinema-name">{cinema.name}</td>
                                 <td>
                                     {cinema.projection_types.map((projection, projIndex) => (
                                         <span className="projection-type-times" key={projIndex}>
@@ -50,7 +50,7 @@ function ProgramCard({ movie }) {
                                                 >
                                                     <button
                                                         key={timeIndex}
-                                                        className="projection-btn-program" // Add a CSS class for styling
+                                                        className="projection-btn-program"
                                                         onClick={() => ticketsClick(movie.name, cinema.name, projection.type, time)}
                                                     >
                                                         {time}
