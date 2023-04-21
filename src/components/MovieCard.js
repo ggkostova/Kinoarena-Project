@@ -20,7 +20,6 @@ const Card = ({ movie }) => {
       <h3>{movie.name}</h3>
       <p>Genre: {movie.genre}</p>
       <p>Premiere: {movie.premiere}</p>
-      <p>Projection Type: {movie.projection_type}</p>
       <button className='movie-card-btn' variant="primary"><Link className={'link'} style={{ textDecoration: "none" }} to={'/details/' + movie.id}>Details</Link></button>
     </div>
   );
