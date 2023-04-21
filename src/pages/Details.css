@@ -3,13 +3,13 @@
 }
 .detail-card {
   display: flex;
-  background: rgb(2, 2, 2);
+  background: rgb(222, 190, 190);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow: hidden;
   margin: 16px;
   opacity: 0.8;
-  color: #ffffff;
+  color: #000000;
   margin-top: 60px;
 }
 
@@ -34,8 +34,7 @@
   left: 37px;
   width: 300px;
   padding: 0 10px 20px 0px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 1);
+  color: #000000;
   font-size: 20px;
   margin: 0;
   font-weight: bold;
@@ -78,7 +77,7 @@
 
 .cinema-projections-table th,
 .cinema-projections-table td {
-  border: 1px solid #ccc;
+  border: 1px solid #3d3d3d;
   padding: 8px;
   text-align: center;
 }
@@ -92,8 +91,8 @@
   margin-bottom: 20px;
   width: 67px;
   justify-self: center;
-  background-color: #f8abab;
-  color: rgb(0, 0, 0);
+  background-color: #701f1f;
+  color: rgb(255, 255, 255);
   opacity: 1;
   margin-left: 15px;
   position: relative;
@@ -104,11 +103,11 @@
 .projection-time-btn:hover{
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
-  background-color: #ca7c7c;
+  background-color: #701f1f;
 }
 
 td{
-  color: #fff;
+  color: #000000;
 }
 
 .projection-type-times {

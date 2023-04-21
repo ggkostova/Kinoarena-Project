@@ -108,6 +108,51 @@ p a:hover {
 .error-message {
   color: rgb(255, 5, 5);
   margin-top: 0.5rem;
+  margin-left: 12px;
   height: 40px;
   visibility: visible;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin-top: 15px;
+}
+
+.checkbox-input:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #fff;
+}
+
+.checkbox-input:focus-visible {
+  box-shadow: 0 0 0 2px #3498db;
+}
+
+.checkbox-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

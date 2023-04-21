@@ -101,7 +101,6 @@ function HomePage(props) {
                             key={movie.id}
                             movie={movie}
                             onClick={() => handleCardClick(movie.id)}
-
                         />
                     ))}
                 {/* </div> */}

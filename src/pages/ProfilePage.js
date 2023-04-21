@@ -28,7 +28,7 @@ const ProfilePage = () => {
         <div className="profile-page">
             <h1>User Info</h1>
             <p><strong>Name:</strong> {loggedUser.username}</p>
-            <p><strong>Age:</strong> {loggedUser.age}</p>
+            {/* <p><strong>Age:</strong> {loggedUser.age}</p> */}
 
             <h2>Booking and Tickets History</h2>
             <ul className="booking-history">

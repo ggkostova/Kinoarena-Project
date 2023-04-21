@@ -1,11 +1,8 @@
 import localStorageManager from './LocalStorageManager';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
 
 class User {
-    constructor(username, age, password) {
+    constructor(username, password) {
         this.username = username;
-        this.age = age;
         this.password = password;
     }
 }
@@ -14,9 +11,9 @@ class UserManager {
     constructor() {
         let logged = JSON.parse(localStorage.getItem('loggedUser'));
         if (logged) {
-            this.loggedUser = new User(logged.username, logged.age, logged.password);
+            this.loggedUser = new User(logged.username, logged.password);
         }
-        this.users = [new User('gosho', 24, '4444'), new User('pesho', 27, '1234')];
+        this.users = [new User('gosho', '4444'), new User('pesho', '1234')];
 
         (() => {
             const addArrayToLocalStorage = (users) => {
@@ -24,7 +21,7 @@ class UserManager {
             }
 
             if (localStorage.getItem('users') === null) {
-                addArrayToLocalStorage([new User('gosho', "22", '4444'), new User('pesho', '48', '1234')]);
+                addArrayToLocalStorage([new User('gosho', '4444'), new User('pesho', '1234')]);
             }
         })();
     }
@@ -55,10 +52,10 @@ class UserManager {
             })
     }
 
-    register = (username, age, password) => {
+    register = (username, password) => {
         return localStorageManager.getItem("users")
             .then((users) => {
-                let newUser = new User(username.trim(), age, password);
+                let newUser = new User(username.trim(), password);
                 users.push(newUser);
                 localStorageManager.setItem('users', users);
             })

@@ -7,11 +7,12 @@ import { useEffect } from 'react';
 
 function RegisterPage() {
   const [username, setUsername] = useState('');
-  const [age, setAge] = useState('');
+  // const [age, setAge] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isOver18, setIsOver18] = useState(false);
 
   const handleUsername = (event) => {
     let res = event.target.value;
@@ -20,35 +21,35 @@ function RegisterPage() {
     setError('');
   }
 
-  useEffect(() =>{
-    if(username){
+  useEffect(() => {
+    if (username) {
       localStorageManager.getItem('users')
-      .then((users) => {
-            let existingUser = users && users.find(user => user.username === username);
-            if (!existingUser) {
-              setUsername(username);
-            } else {
-              setUsername('');
-              setError('Username already exists');
-            }
-        })    
+        .then((users) => {
+          let existingUser = users && users.find(user => user.username === username);
+          if (!existingUser) {
+            setUsername(username);
+          } else {
+            setUsername('');
+            setError('Username already exists');
+          }
+        })
     }
-  },[username])
+  }, [username])
 
   useEffect(() => {
-    if(username && password && confirmPassword){
-      if(password !== confirmPassword){
+    if (username && password && confirmPassword) {
+      if (password !== confirmPassword) {
         setError('The password and confirm password must be equal.');
         setIsFormValid(false);
       }
-      else{
+      else {
         setIsFormValid(true);
       }
     }
-    else{
+    else {
       setIsFormValid(false);
     }
-  },[password, confirmPassword, username])
+  }, [password, confirmPassword, username])
 
   useEffect(() => {
     if (!isFormValid) {
@@ -56,10 +57,10 @@ function RegisterPage() {
     }
   }, [isFormValid]);
 
-  const handleUserAge = (event) => {
-    let res = event.target.value;
-    setAge(res);
-  }
+  // const handleUserAge = (event) => {
+  //   let res = event.target.value;
+  //   setAge(res);
+  // }
 
   const handlePass = (event) => {
     let res = event.target.value;
@@ -79,7 +80,7 @@ function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    userManager.register(username, age, password, confirmPassword)
+    userManager.register(username, password, confirmPassword)
       .then(() => {
         navigate("/login");
         setIsFormValid(true);
@@ -98,6 +99,11 @@ function RegisterPage() {
       console.log(error);
     }
   }, [error]);
+
+  const handleAgeCheck = (event) => {
+    setIsOver18(event.target.checked);
+  };
+
   return (
     <div className='register-container'>
       <h1>Register</h1>
@@ -109,14 +115,17 @@ function RegisterPage() {
           required
           onChange={handleUsername}
         />
-        <br />
-        <input
-          type="age"
-          id="age"
-          placeholder="Enter your age"
-          required
-          onChange={handleUserAge}
-        />
+        <div className='checkbox-container'>
+          <input
+            type="checkbox"
+            id="ageCheckbox"
+            className="checkbox-input"
+            required
+            onChange={handleAgeCheck}
+            disabled={!username || !password || !confirmPassword}
+          />
+          <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
+        </div>
         <br />
         <input
           type="password"
@@ -137,7 +146,7 @@ function RegisterPage() {
         <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
           {error && error}
         </div>
-        <button className='register-btn' style={{ visibility: isFormValid ? 'visible' : 'hidden' }} onClick={handleSubmit}>Register</button>
+        <button className='register-btn' disabled={!isFormValid} onClick={handleSubmit}>Register</button>
       </form>
     </div>
   );

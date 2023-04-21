@@ -42,8 +42,6 @@
     width: 100%;
     margin: 0;
     margin-bottom: 100px;
-    position: relative;
-    left: 2em;
 }
 
 .movie {
@@ -75,7 +73,7 @@
     margin-bottom: 5px;
 }
 
-.filter-btn {
+/* .filter-btn {
     width: 470px;
     height: 30px;
     margin-left: 2%;
@@ -90,4 +88,4 @@
     color: whitesmoke;
     padding-bottom: 5px;
 
-}
+} */
