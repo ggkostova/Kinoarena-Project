@@ -101,3 +101,15 @@
 .choose-seats-btn:hover {
   background-color: #7d1a1a;
 }
+
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+  z-index: 999;
+}

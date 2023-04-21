@@ -38,7 +38,7 @@ function LoginPage({handleLogin}) {
                 handleLogin();
             }else{
                 setIsFormValid(false);
-                setError('There is not user with these phragments.');
+                setError('Enter your username and password');
             }
         })
     };
