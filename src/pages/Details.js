@@ -29,7 +29,7 @@ export default function DetailsPage() {
     }
 
     return (
-        <div>
+        <div className="details-page">
             <div className="detail-card">
                 <div className="detail-card-left">
                     <h2 className="movie-title">{movie && movie.name}</h2>

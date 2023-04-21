@@ -1,3 +1,6 @@
+.details-page{
+  height: 62vh;
+}
 .detail-card {
   display: flex;
   background: rgb(2, 2, 2);

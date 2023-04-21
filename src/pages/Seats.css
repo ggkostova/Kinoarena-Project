@@ -1,5 +1,5 @@
 .cinema-hall-container{
-  background-color: #34763d;
+  background-color: #197a26;
   display: flex;
   flex-direction: column;
 }
@@ -69,7 +69,7 @@
 }
 .seats-btn:hover{
   transform: scale(1.1);
-  background-color: rgb(247, 199, 208);
+  background: rgb(154, 29, 29);
 }
 .screen {
   background-color: rgb(41, 39, 39);

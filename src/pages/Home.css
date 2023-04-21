@@ -20,7 +20,7 @@
     height: 450px;
 }
 
-.movie-list {
+/* .movie-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,15 +28,22 @@
     margin-bottom: 100px;
     position: relative;
     left: 2em;
-}
+} */
 
 .movie-list-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     overflow: auto;
     padding: 0 4%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0;
+    margin-bottom: 100px;
+    position: relative;
+    left: 2em;
 }
 
 .movie {

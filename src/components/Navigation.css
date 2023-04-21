@@ -65,6 +65,7 @@
   font-weight: bold;
   position: relative;
   bottom: 3px;
+  color: rgb(255, 255, 255);
 }
 .logout-btn:hover {
   transform: scale(1.1);
