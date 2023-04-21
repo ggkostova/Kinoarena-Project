@@ -10,7 +10,8 @@ body {
   padding: 20px;
 }
 
-.movie-list {
+.cinema-list {
+    height: 38.02vw;
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
@@ -26,6 +27,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  height: 500px;
   width: 350px;
   margin-left: 10px;
   box-sizing: border-box;

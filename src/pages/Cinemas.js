@@ -17,7 +17,7 @@ export default function CinemasPage() {
 
     return (
         
-        <div className="movie-list">
+        <div className="cinema-list">
             {cinemas && cinemas.map((cinema, index) => (
                 <CinemaCard key={index} cinema={cinema} />
             ))}
