@@ -8,6 +8,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Christopher Nolan",
         "cast": "Christian Bale, Heath Ledger, Aaron Eckhart",
+        "trailer": "https://www.youtube.com/watch?v=UwrOQ2pYDxY&ab_channel=TrailersPlaygroundHD",
         "image_src": "https://cdn.vox-cdn.com/thumbor/Kr_zFMNcZmn28_TBF-8YYlhD9gw=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11694967/0_c9S8ajFBpwX89ZuU.jpeg",
         "cinemas": [
             {
@@ -47,6 +48,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Christopher Nolan",
         "cast": "Leonardo DiCaprio, Ken Watanabe, Joseph Gordon-Levitt",
+        "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0&ab_channel=RottenTomatoesClassicTrailers",
         "image_src": "https://images-ext-1.discordapp.net/external/dlnJDHX-YdR7zQ0CBl1bPcj2gSGpoQvctwisep9ctJQ/https/m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw%40%40._V1_.jpg?width=825&height=1222",
         "cinemas": [
             {
@@ -90,6 +92,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Frank Darabont",
         "cast": "Tim Robbins, Morgan Freeman, Bob Gunton",
+        "trailer": "https://www.youtube.com/watch?v=PLl99DlL6b4&ab_channel=WarnerBros.Entertainment",
         "image_src": "https://images-ext-2.discordapp.net/external/xsgmFqFKotLCi-OcBigqK4cC7-C4Tm8UqeaSr7-JI0k/https/i.ytimg.com/vi/19THOH_dvxg/movieposter_en.jpg?width=697&height=1005",
         "cinemas": [
             {
@@ -129,6 +132,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=UaVTIH8mujA&ab_channel=ParamountPictures",
         "image_src": "https://images-ext-2.discordapp.net/external/L2g6XSmyUOeCegmVNUPDG1b2axF6VTRr70PrQvux8Dg/https/m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM%40._V1_.jpg?width=860&height=1220",
         "cinemas": [
             {
@@ -168,6 +172,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=vKQi3bBA1y8&ab_channel=RottenTomatoesClassicTrailers",
         "image_src": "https://images-ext-2.discordapp.net/external/T45CdIStMAQTZSnGlkoX8ZGPSQJT5BT8MvVT4KR4RdE/https/m.media-amazon.com/images/I/81wrPiZFKIL._RI_.jpg?width=917&height=1222",
         "cinemas": [
             {
@@ -211,6 +216,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "",
         "image_src": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
         "cinemas": [
             {
@@ -254,6 +260,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=XHhAG-YLdk8&ab_channel=RottenTomatoesClassicTrailers",
         "image_src": "https://images-ext-2.discordapp.net/external/vISBzvfiwwgW5fB7ovJEySJ5FuR2lhNVEHdcwGTdrkM/https/kbimages1-a.akamaihd.net/22585eaf-7415-48f8-bff0-2af6da57338c/1200/1200/False/forrest-gump-1.jpg?width=777&height=1222",
         "cinemas": [
             {
@@ -297,6 +304,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=MpkrMqmmy5k&ab_channel=TerraStone",
         "image_src": "https://images-ext-1.discordapp.net/external/9l1ZRtmzLZujJMmZSx63F4rxylmzpKt8soeH5sWO30g/%3Fcb%3D20211105092556/https/static.wikia.nocookie.net/listofdeaths/images/b/b5/A_New_Hope_poster.jpg/revision/latest?width=862&height=1222",
         "cinemas": [
             {
@@ -340,6 +348,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=W6Mm8Sbe__o&ab_channel=RottenTomatoesClassicTrailers",
         "image_src": "https://images-ext-1.discordapp.net/external/0YhNjD6J3rPq0FiUZ9eyBxYpIPObNR3ebL2jS0M-qAg/https/images-na.ssl-images-amazon.com/images/S/pv-target-images/1d661187b253755ef32e1f21748ca1e217529bb72f8ef8a87a18fd8e904246a0._RI_V_TTW_.jpg?width=917&height=1222",
         "cinemas": [
             {
@@ -383,6 +392,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=V75dMMIW2B4&ab_channel=Movieclips",
         "image_src": "https://images-ext-1.discordapp.net/external/-6NyHv74hiZMDAgn7A71aktRIwYjL3UkDN-foTBbrbk/https/m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY%40._V1_.jpg?width=822&height=1220",
         "cinemas": [
             {
@@ -426,6 +436,7 @@ const MOVIES = [
         "summary": "Lorem ......",
         "director": "Slavi Vargulev",
         "cast": "Leonardo, Brad, Gosho",
+        "trailer": "https://www.youtube.com/watch?v=lFzVJEksoDY&ab_channel=DisneyPlus",
         "image_src": "https://images-ext-1.discordapp.net/external/RxGLJ9I8dDIJTUDPCdinxYHqH1wplB9pv4k4-WSyHxM/https/m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI%40._V1_.jpg?width=822&height=1222",
         "cinemas": [
             {
