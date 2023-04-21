@@ -27,18 +27,18 @@ const ProfilePage = () => {
     return (
         <div className="profile-page">
             <h1>User Info</h1>
-            <p>Name: {loggedUser.username}</p>
-            <p>Age: {loggedUser.age}</p>
+            <p><strong>Name:</strong> {loggedUser.username}</p>
+            <p><strong>Age:</strong> {loggedUser.age}</p>
 
             <h2>Booking and Tickets History</h2>
             <ul className="booking-history">
                 {bookingHistory.map((booking) => (
                     <li key={booking.id}>
-                        Cinema: {booking.cinema} <br />
-                        Movie: {booking.movieName} <br />
-                        Projection Type: {booking.projectionType} <br />
-                        Projection Time: {booking.projectionTimes} <br />
-                        Seats: {booking.selectedSeats.join(", ")} <br />
+                       <strong>Cinema:</strong> {booking.cinema} <br />
+                       <strong>Movie:</strong> {booking.movieName} <br />
+                       <strong>Projection Type:</strong> {booking.projectionType} <br />
+                       <strong>Projection Time:</strong> {booking.projectionTimes} <br />
+                       <strong>Seats:</strong> {booking.selectedSeats.join(", ")} <br />
                     </li>
                 ))}
             </ul>

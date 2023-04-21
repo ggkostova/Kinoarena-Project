@@ -39,14 +39,14 @@ function TicketTable({ tickets, setTickets, onTotalChange }) {
           <td>{ticket.type}</td>
           <td>
             <div className="count-container">
-              <button onClick={() => handleDecrease(index)}>-</button>
+              <button className='tickets-table-btn' onClick={() => handleDecrease(index)}>-</button>
               <input
                 type="number"
                 value={ticket.count}
                 readOnly
                 className="count-input"
               />
-              <button onClick={() => handleIncrease(index)}>+</button>
+              <button className='tickets-table-btn' onClick={() => handleIncrease(index)}>+</button>
             </div>
           </td>
           <td>${ticket.price}</td>

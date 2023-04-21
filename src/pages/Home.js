@@ -95,7 +95,7 @@ function HomePage(props) {
                 onSubmit={handleSubmit}
             />
             <div className="movie-list-section">
-                <div className="movie-list">
+                {/* <div className="movie-list"> */}
                     {movies && movies.map(movie => (
                         <Card
                             key={movie.id}
@@ -104,7 +104,7 @@ function HomePage(props) {
 
                         />
                     ))}
-                </div>
+                {/* </div> */}
             </div>
         </div>
     );
