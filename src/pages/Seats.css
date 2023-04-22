@@ -1,7 +1,9 @@
 .cinema-hall-container{
-  background-color: #7fc288;
+  background: rgb(248, 223, 234);
+  background: radial-gradient(circle, rgb(121, 120, 120) 0%, rgb(28, 27, 27) 100%);
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
 }
 
 .seat-layout {
@@ -38,12 +40,12 @@
 }
 
 .seat.reserved {
-  background-color: #453838;
+  background-color:rgb(255, 213, 0);
   cursor: not-allowed;
 }
 
 .seat.selected {
-  background-color: rgb(247, 218, 218);
+  background-color: white;
   color: #fff;
 }
 
@@ -62,7 +64,7 @@
   font-size: 16px;
   cursor: pointer;
   position: relative;
-  left: 39%;
+  left: 39.5%;
   margin-bottom: 30px;
   width: 300px;
   font-weight: bold;

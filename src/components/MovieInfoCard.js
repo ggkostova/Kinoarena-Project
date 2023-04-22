@@ -7,9 +7,9 @@ function MovieInfoCard({ movie }) {
   return (
     <div className="movie-card">
       <h3>{movie.movieName}</h3>
-      <p>Cinema: {movie.cinema}</p>
-      <p>Time: {movie.time}</p>
-      <p>Projection Type: {movie.projectionType}</p>
+      <p><strong>Cinema:</strong> {movie.cinema}</p>
+      <p><strong>Time:</strong> {movie.time}</p>
+      <p><strong>Projection Type:</strong> {movie.projectionType}</p>
     </div>
   );
 }
