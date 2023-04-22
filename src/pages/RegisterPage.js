@@ -133,9 +133,6 @@ function RegisterPage() {
           onChange={handleConfirmPass}
         />
         <br />
-        <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
-          {error && error}
-        </div>
         <div className='checkbox-container'>
           <input
             type="checkbox"
@@ -146,6 +143,9 @@ function RegisterPage() {
             disabled={!username || !password || !confirmPassword}
           />
           <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
+        </div>
+        <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
+          {error && error}
         </div>
         <button className='register-btn' disabled={!isFormValid} onClick={handleSubmit}>Register</button>
       </form>
