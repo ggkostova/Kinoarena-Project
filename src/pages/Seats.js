@@ -1,5 +1,5 @@
 import "./Seats.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import seat from "../seat.png";
@@ -11,15 +11,14 @@ function Seat({ row, seat, isReserved, isSelected, onSelect }) {
     }
   };
 
-  
-
   return (
-    <div 
+    <div
       id={"one-seat"}
-      className={`seat ${isReserved ? "reserved" : ""} ${isSelected ? "selected" : ""}`}
+      className={`seat ${isReserved ? "reserved" : ""} ${
+        isSelected ? "selected" : ""
+      }`}
       onClick={handleClick}
-    >
-    </div>
+    ></div>
   );
 }
 
@@ -85,6 +84,36 @@ function CinemaHall(props) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
+  const updateReservedSeats = (newReservedSeats) => {
+    setReservedSeats((prevReservedSeats) => [...prevReservedSeats, ...newReservedSeats]);
+  };
+  
+
+  useEffect(() => {
+    const bookedTickets = JSON.parse(localStorage.getItem("bookedTickets")) || [];
+  
+    const latestTicket = JSON.parse(localStorage.getItem("tickets"))?.[0];
+    const { cinema, movieName, projectionType, projectionTimes } = latestTicket || {};
+  
+    const matchingTickets = bookedTickets.filter(
+      (ticket) =>
+        ticket.cinema === cinema &&
+        ticket.movieName === movieName &&
+        ticket.projectionType === projectionType &&
+        ticket.projectionTimes === projectionTimes
+    );
+  
+    if (matchingTickets.length > 0) {
+      console.log("Yes");
+      const allSelectedSeats = matchingTickets.flatMap(ticket => ticket.selectedSeats);
+      updateReservedSeats(allSelectedSeats);
+    } else {
+      console.log("No");
+    }
+  }, []);
+  
+
   const navigate = useNavigate();
 
   const handleCloseAlert = () => {
@@ -122,10 +151,6 @@ function CinemaHall(props) {
     let ticketsInfo = JSON.parse(localStorage.getItem("tickets"));
     console.log(ticketsInfo[0].ticketsCount);
 
-    // const requiredSeatsCount = latestTicket
-    //   ? calculateTotalCount(latestTicket.tickets)
-    //   : 0;
-
     console.log("Latest ticket:", latestTicket);
 
     if (selectedSeats.length < ticketsInfo[0].ticketsCount) {
@@ -159,7 +184,7 @@ function CinemaHall(props) {
         setShowSuccessAlert(true);
 
         setSelectedSeats([]);
-        // navigate("/profile");
+        
       } else {
         alert("Error: Could not retrieve ticket information.");
       }
@@ -196,7 +221,9 @@ function CinemaHall(props) {
           </div>
         </div>
       )}
-      <div className="screen"><span>Screen</span></div>
+      <div className="screen">
+        <span>Screen</span>
+      </div>
       <SeatLayout
         numRows={10}
         numSeatsPerRow={10}
