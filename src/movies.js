@@ -222,7 +222,7 @@ const MOVIES = [
         "director": "Slavi Vargulev",
         "above18": "true",
         "cast": "Leonardo, Brad, Gosho",
-        "trailer": "",
+        "trailer": "https://www.youtube.com/watch?v=m8e-FF8MsqU&ab_channel=FaceOff",
         "image_src": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
         "cinemas": [
             {

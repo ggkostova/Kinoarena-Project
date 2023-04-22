@@ -52,6 +52,17 @@ function BuyTickets() {
 
   const [movie, setMovie] = React.useState(null);
   const [tickets, setTickets] = React.useState([]);
+  const [showAlert, setShowAlert] = React.useState(false);
+  const [alertMessage, setAlertMessage] = React.useState('');
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
+  };
+
+  const showCustomAlert = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+  };
 
   React.useEffect(() => {
     const prePurchaseInfo = JSON.parse(localStorage.getItem("tickets"));
@@ -107,12 +118,18 @@ function BuyTickets() {
 
       navigate("/seats");
     } else {
-      alert("You must be logged in to purchase a ticket.");
+      showCustomAlert("You must be logged in to purchase a ticket.");
     }
   };
 
   return (
     <div className="tickets-div">
+      {showAlert && (
+        <div className="custom-alert">
+          <p>{alertMessage}</p>
+          <button onClick={handleAlertClose}>Close</button>
+        </div>
+      )}
       <div className="tickets-content">
         <div className="left-side">
           {movie && <MovieInfoCard movie={movie} />}

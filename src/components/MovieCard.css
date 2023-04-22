@@ -41,17 +41,17 @@
 
 button {
   display: inline-block;
-  padding: 10px 20px; /* Adjust the padding as needed */
-  background-color: #4CAF50; /* Set the background color */
-  color: white; /* Set the text color */
-  text-decoration: none; /* Remove the underline from the text */
-  font-size: 16px; /* Set the font size */
-  border: none; /* Remove the border */
-  cursor: pointer; /* Change the cursor style to pointer when hovering */
+  padding: 10px 20px; 
+  background-color: #4CAF50; 
+  color: white; 
+  text-decoration: none; 
+  font-size: 16px; 
+  border: none; 
+  cursor: pointer; 
 }
 
 button:hover {
-  background-color: #45a049; /* Change the background color when hovering */
+  background-color: #45a049; 
 }
 
 .movie-card-btn {
@@ -70,4 +70,42 @@ button:hover {
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
   background-color: #290808;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

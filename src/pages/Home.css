@@ -20,15 +20,14 @@
     height: 450px;
 }
 
-/* .movie-list {
+.trailer-player-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0;
-    margin-bottom: 100px;
-    position: relative;
-    left: 2em;
-} */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100
+}
 
 .movie-list-section {
     display: flex;
@@ -73,19 +72,33 @@
     margin-bottom: 5px;
 }
 
-/* .filter-btn {
-    width: 470px;
-    height: 30px;
-    margin-left: 2%;
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgba(85, 18, 130, 1) 0%, rgba(37, 67, 149, 1) 50%, rgba(9, 101, 108, 1) 100%);
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    top: 0.6em;
-}
-
-.filter-btn>.link {
-    text-decoration: none;
-    color: whitesmoke;
-    padding-bottom: 5px;
-
-} */
+    background-color: transparent;
+    width: 80%;
+    height: 80%;
+    max-width: 800px;
+    max-height: 450px;
+  }
+  
+  .close-trailer-btn {
+    color: #fff;
+    background-color: rgba(245, 8, 8, 0.7);
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    opacity: 10;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+  
+  .close-trailer-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
