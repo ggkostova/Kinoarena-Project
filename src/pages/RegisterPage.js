@@ -115,17 +115,6 @@ function RegisterPage() {
           required
           onChange={handleUsername}
         />
-        <div className='checkbox-container'>
-          <input
-            type="checkbox"
-            id="ageCheckbox"
-            className="checkbox-input"
-            required
-            onChange={handleAgeCheck}
-            disabled={!username || !password || !confirmPassword}
-          />
-          <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
-        </div>
         <br />
         <input
           type="password"
@@ -143,6 +132,17 @@ function RegisterPage() {
           onChange={handleConfirmPass}
         />
         <br />
+        <div className='checkbox-container'>
+          <input
+            type="checkbox"
+            id="ageCheckbox"
+            className="checkbox-input"
+            required
+            onChange={handleAgeCheck}
+            disabled={!username || !password || !confirmPassword}
+          />
+          <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
+        </div>
         <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
           {error && error}
         </div>
