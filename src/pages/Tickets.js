@@ -140,9 +140,6 @@ function BuyTickets() {
             setTickets={setTickets}
             onTotalChange={handleTotalChange}
           />
-          <div className="total-price">
-            <p>Total: {totalSum}$</p>
-          </div>
           <button
             className="choose-seats-btn"
             onClick={handleSubmit}
