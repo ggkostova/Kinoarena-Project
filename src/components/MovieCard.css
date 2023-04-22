@@ -6,7 +6,6 @@
   margin: 10px;
   padding: 10px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   border-radius: 20px;
   backdrop-filter: blur(20px);
   opacity: 0.8;
@@ -47,18 +46,15 @@ button {
   text-decoration: none; 
   font-size: 16px; 
   border: none; 
-  cursor: pointer; 
-}
-
-button:hover {
-  background-color: #45a049; 
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
 }
 
 .movie-card-btn {
   background-color: #531616;
   margin-left: 20px;
   border-radius: 10px;
-  height: 30px;
+  height: 35px;
   position: relative;
   right: 3%;
   cursor: pointer;

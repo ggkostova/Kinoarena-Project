@@ -58,37 +58,14 @@ class UserManager {
   };
 
   register = (username, password) => {
-    
-    if (!username.trim() || !password.trim()) {
-      this.errorMessage = "Username and password cannot be empty.";
-      return Promise.reject(this.errorMessage);
-    }
-
-    if (username.length < 3 || password.length < 6) {
-      this.errorMessage =
-        "Username must be at least 3 characters and password must be at least 6 characters.";
-      return Promise.reject(this.errorMessage);
-    }
-
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if (!passwordRegex.test(password)) {
-      this.errorMessage =
-        "Password must have at least one uppercase letter, one lowercase letter, one digit, and one special character.";
-      return Promise.reject(this.errorMessage);
-    }
-
     return localStorageManager.getItem("users").then((users) => {
       let existingUser =
         users && users.find((user) => user.username === username);
-      if (existingUser) {
-        this.errorMessage = "Username is already taken.";
-        return Promise.reject(this.errorMessage);
-      } else {
+      if (!existingUser) {
         let newUser = new User(username.trim(), password);
         users.push(newUser);
         localStorageManager.setItem("users", users);
-        return Promise.resolve("User registered successfully");
+        return true;
       }
     });
   };

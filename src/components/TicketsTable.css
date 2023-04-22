@@ -1,8 +1,8 @@
 .ticket-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: Arial, sans-serif;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Playfair Display', serif;
     margin: 20px 0;
   }
   .tickets-table-btn{

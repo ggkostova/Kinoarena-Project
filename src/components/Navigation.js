@@ -8,7 +8,7 @@ function NavigationBar() {
     return (
         <div className="nav-div">
             <nav className="nav-bar">
-                <ul>
+                <ul className="left-side">
                     <li>
                         <span>
                             <Link className="nav-link" to="/cinemas">Cinemas</Link>
@@ -23,7 +23,7 @@ function NavigationBar() {
                 <Link className="title" to="/">
                     <img src={logo} alt="Logo" style={{ width: "110x", height: "80px"}}/>
                 </Link>
-                <span>
+                <span className="right-side not-logged">
                     <Link className="nav-link" to="/login">Sign in</Link>
                 </span>
             </nav>

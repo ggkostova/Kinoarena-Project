@@ -11,7 +11,7 @@ body {
 }
 
 .cinema-list {
-    height: 38.02vw;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
@@ -72,6 +72,3 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-  
-  

@@ -18,7 +18,7 @@ function NavigationLoggedBar({ handleLogout }) {
     return (
         <div className="nav-div">
             <nav className="nav-bar">
-                <ul>
+                <ul className="left-side">
                     <li>
                         <span>
                             <Link className="nav-link" to="/cinemas">Cinemas</Link>
@@ -33,11 +33,13 @@ function NavigationLoggedBar({ handleLogout }) {
                 <Link className="title" to="/">
                     <img src={logo} alt="Logo" style={{ width: "110x", height: "80px" }} />
                 </Link>
-                <div className="profile-logout-side">
+                <div className="right-side">
                     <span>
                         <Link className="nav-link" to="/profile">Profile</Link>
                     </span>
-                    <button className="logout-btn" onClick={handleLogoutButton}>Logout</button>
+                    <span>
+                        <button className="logout-btn" onClick={handleLogoutButton}>Logout</button>
+                    </span>
                 </div>
 
             </nav>

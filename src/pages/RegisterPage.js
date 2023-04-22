@@ -7,18 +7,23 @@ import { useEffect } from 'react';
 
 function RegisterPage() {
   const [username, setUsername] = useState('');
-  // const [age, setAge] = useState('');
+  const [usernameMessage, setUsernameMessage] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordMessage, setPasswordMessage] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [confirmPassMessage, setConfirmPassMessage] = useState('');
   const [isOver18, setIsOver18] = useState(false);
 
   const handleUsername = (event) => {
     let res = event.target.value;
     res.trim();
     setUsername(res);
-    setError('');
+
+    if (res.length < 3) {
+      setUsernameMessage('Username must be at least 3 characters.');
+    } else {
+      setUsernameMessage('');
+    }
   }
 
   useEffect(() => {
@@ -30,78 +35,55 @@ function RegisterPage() {
             setUsername(username);
           } else {
             setUsername('');
-            setError('Username already exists');
+            setUsernameMessage('Username is already taken.');
           }
         })
     }
   }, [username])
 
   useEffect(() => {
-    if (username && password && confirmPassword) {
-      if (password !== confirmPassword) {
-        setError('The password and confirm password must be equal.');
-        setIsFormValid(false);
-      }
-      else {
-        setIsFormValid(true);
-      }
+    if (password === confirmPassword) {
+      setConfirmPassMessage('');
     }
-    else {
-      setIsFormValid(false);
-    }
-  }, [password, confirmPassword, username])
-
-  useEffect(() => {
-    if (!isFormValid) {
-      console.log(isFormValid);
-    }
-  }, [isFormValid]);
-
-  // const handleUserAge = (event) => {
-  //   let res = event.target.value;
-  //   setAge(res);
-  // }
+  }, [password, confirmPassword, confirmPassMessage]);
 
   const handlePass = (event) => {
     let res = event.target.value;
     setPassword(res);
-    setError('');
-    setIsFormValid(false);
+    if (res.length < 6 || !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/.test(res)) {
+      setPasswordMessage('Password must be at least 6 characters, one uppercase letter, one lowercase letter, one digit, and one special character.');
+    } else {
+      setPasswordMessage('');
+    }
   }
 
   const handleConfirmPass = (event) => {
     let res = event.target.value;
     setConfirmPassword(res);
-    setError('');
-    setIsFormValid(false);
   }
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    userManager.register(username, password, confirmPassword)
-      .then(() => {
-        navigate("/login");
-        setIsFormValid(true);
-        setError('');
-      })
-      .catch((error) => {
-        localStorageManager.getItem('errorMessage')
-          .then((errorMessage) => {
-            setError(errorMessage);
-          });
-      });
-  };
-
-  useEffect(() => {
-    if (error) {
-      console.log(error);
-    }
-  }, [error]);
-
   const handleAgeCheck = (event) => {
     setIsOver18(event.target.checked);
+  };
+  useEffect(() => {
+    if (!isOver18) {
+      console.log(isOver18);
+    }
+  }, [isOver18])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isOver18 && userManager.register(username, password, confirmPassword)) {
+      userManager.register(username, password, confirmPassword);
+      navigate("/login");
+    }
+    else {
+      if (password !== confirmPassword) {
+        setConfirmPassMessage('The password and confirm password must be equal.');
+      }
+    }
   };
 
   return (
@@ -115,8 +97,9 @@ function RegisterPage() {
           required
           onChange={handleUsername}
         />
-        
-        <br />
+        <div className='username-message' style={{ visibility: usernameMessage ? 'visible' : 'hidden' }}>
+          {usernameMessage && usernameMessage}
+        </div>
         <input
           type="password"
           id="password"
@@ -124,7 +107,9 @@ function RegisterPage() {
           required
           onChange={handlePass}
         />
-        <br />
+        <div className='pass-message' style={{ visibility: passwordMessage ? 'visible' : 'hidden' }}>
+          {passwordMessage && passwordMessage}
+        </div>
         <input
           type="password"
           id="confirmPassword"
@@ -132,20 +117,8 @@ function RegisterPage() {
           required
           onChange={handleConfirmPass}
         />
-        <br />
-        <div className='checkbox-container'>
-          <input
-            type="checkbox"
-            id="ageCheckbox"
-            className="checkbox-input"
-            required
-            onChange={handleAgeCheck}
-            disabled={!username || !password || !confirmPassword}
-          />
-          <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
-        </div>
-        <div className='error-message' style={{ visibility: error ? 'visible' : 'hidden' }}>
-          {error && error}
+        <div className='username-message' style={{ visibility: confirmPassMessage ? 'visible' : 'hidden' }}>
+          {confirmPassMessage && confirmPassMessage}
         </div>
         <div className='checkbox-container'>
           <input
@@ -158,7 +131,7 @@ function RegisterPage() {
           />
           <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
         </div>
-        <button className='register-btn' disabled={!isFormValid} onClick={handleSubmit}>Register</button>
+        <button className='register-btn' onClick={handleSubmit}>Register</button>
       </form>
     </div>
   );

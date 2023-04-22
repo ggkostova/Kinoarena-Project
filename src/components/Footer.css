@@ -4,10 +4,9 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
     position: relative;
-    /* bottom: -20px; */
     bottom: 0;
   }
   

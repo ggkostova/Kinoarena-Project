@@ -38,7 +38,7 @@ function LoginPage({handleLogin}) {
                 handleLogin();
             }else{
                 setIsFormValid(false);
-                setError('Enter your username and password');
+                setError('Wrong username or password.');
             }
         })
     };
