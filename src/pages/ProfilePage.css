@@ -1,21 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
 .profile-page {
+    font-family: 'Poppins', Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffdbdb;
+    background-color: #f1f1f1;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    height: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    height: 76vh;
 }
-.loading-div{
+
+.loading-div {
     height: 69.3vh;
 }
+
 .profile-page h1,
 .profile-page h2 {
     color: #333;
     margin-bottom: 20px;
 }
-.profile-page h2{
+
+.profile-page h1 {
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+}
+
+.profile-page h2 {
+    font-weight: 500;
+    font-size: 24px;
     position: relative;
     left: -22px;
 }
@@ -35,12 +49,17 @@
     margin-bottom: 5px;
 }
 
-.booking-history>li{
+.booking-history > li {
     position: relative;
     left: 23%;
     margin: 0;
     width: 60%;
     align-items: center;
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
 }

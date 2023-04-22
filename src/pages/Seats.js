@@ -84,9 +84,14 @@ function CinemaHall(props) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showMaxSeatsAlert, setShowMaxSeatsAlert] = useState(false);
 
   const updateReservedSeats = (newReservedSeats) => {
     setReservedSeats((prevReservedSeats) => [...prevReservedSeats, ...newReservedSeats]);
+  };
+
+  const handleCloseMaxSeatsAlert = () => {
+    setShowMaxSeatsAlert(false);
   };
   
 
@@ -127,13 +132,19 @@ function CinemaHall(props) {
 
   const handleSeatSelect = (row, seat) => {
     const seatId = `${row}${seat}`;
+    const ticketsInfo = JSON.parse(localStorage.getItem("tickets"));
+    const ticketsCount = ticketsInfo ? ticketsInfo[0].ticketsCount : 0;
 
     if (selectedSeats.includes(seatId)) {
       setSelectedSeats(
         selectedSeats.filter((selectedSeat) => selectedSeat !== seatId)
       );
     } else {
-      setSelectedSeats([...selectedSeats, seatId]);
+      if (selectedSeats.length < ticketsCount) {
+        setSelectedSeats([...selectedSeats, seatId]);
+      } else {
+        setShowMaxSeatsAlert(true);
+      }
     }
   };
 
@@ -193,6 +204,20 @@ function CinemaHall(props) {
 
   return (
     <div className="cinema-hall-container">
+      {showMaxSeatsAlert && (
+        <div className="custom-alert-overlay">
+          <div className="custom-alert">
+            <h3>Warning</h3>
+            <p>You cannot select more seats than the required count.</p>
+            <button
+              className="custom-alert-close"
+              onClick={handleCloseMaxSeatsAlert}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       {showSuccessAlert && (
         <div className="custom-success-alert-overlay">
           <div className="custom-success-alert">
