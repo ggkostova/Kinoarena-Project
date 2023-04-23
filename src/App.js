@@ -79,8 +79,9 @@ function App() {
           <Route path="/login" element={<LoginPage handleLogin={handleLogin} />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
         </Routes>
+        <div className="push"></div>
+        <Footer />
       </div>
-      <Footer />
     </Provider>
   </>;
 }

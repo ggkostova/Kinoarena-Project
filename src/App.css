@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.routes-wrapper {
+  min-height: 100%;
+  margin-bottom: -167px;
+}
+
+.footer,
+.push {
+  height: 167px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,8 +52,8 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-

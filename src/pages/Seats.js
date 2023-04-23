@@ -168,7 +168,7 @@ function CinemaHall(props) {
       setShowAlert(true);
     } else {
       if (latestTicket) {
-        const { cinema, movieName, date, projectionType, projectionTimes } =
+        const { cinema, movieName, date, projectionType, projectionTimes , totalSum} =
           latestTicket;
 
         setReservedSeats([...reservedSeats, ...selectedSeats]);
@@ -182,6 +182,7 @@ function CinemaHall(props) {
           projectionTimes: projectionTimes,
           username: username.username,
           selectedSeats: selectedSeats,
+          totalSum: totalSum
         };
 
         const storedBookedTickets =

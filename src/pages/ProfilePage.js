@@ -28,7 +28,6 @@ const ProfilePage = () => {
         <div className="profile-page">
             <h1>User Info</h1>
             <p><strong>Name:</strong> {loggedUser.username}</p>
-            {/* <p><strong>Age:</strong> {loggedUser.age}</p> */}
 
             <h2>Booking and Tickets History</h2>
             <ul className="booking-history">
@@ -38,6 +37,7 @@ const ProfilePage = () => {
                        <strong>Movie:</strong> {booking.movieName} <br />
                        <strong>Projection Type:</strong> {booking.projectionType} <br />
                        <strong>Projection Time:</strong> {booking.projectionTimes} <br />
+                       <strong>Total price:</strong> {booking.totalSum}$ <br />
                        <strong>Seats:</strong> {booking.selectedSeats.join(", ")} <br />
                     </li>
                 ))}
