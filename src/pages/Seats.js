@@ -1,8 +1,8 @@
 import "./Seats.css";
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import seat from "../seat.png";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 function Seat({ row, seat, isReserved, isSelected, onSelect }) {
   const handleClick = () => {
