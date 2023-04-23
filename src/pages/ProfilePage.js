@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./ProfilePage.css";
-import localStorageManager from "../services/LocalStorageManager";
-import { Link } from "react-router-dom";
-import userManager from "../services/UserManager";
 
 const ProfilePage = () => {
     const [loggedUser, setLoggedUser] = useState(null);
@@ -28,7 +25,6 @@ const ProfilePage = () => {
         <div className="profile-page">
             <h1>User Info</h1>
             <p><strong>Name:</strong> {loggedUser.username}</p>
-
             <h2>Booking and Tickets History</h2>
             <ul className="booking-history">
                 {bookingHistory.map((booking) => (

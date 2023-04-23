@@ -47,7 +47,6 @@ export default function DetailsPage() {
                 </div>
                 <table className="cinema-projections-table">
                     <thead>
-                        {/* ... Table header remains the same */}
                     </thead>
                     <tbody>
                         {movie.cinemas && movie.cinemas.map((cinema, index) => (
