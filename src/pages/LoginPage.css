@@ -9,7 +9,7 @@ body {
 }
 
 .login-container {
-  height: 37vw;
+  min-height: 80vh;
   width: 35%;
   background-color: rgb(68, 20, 20);
   opacity: 0.9;
