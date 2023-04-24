@@ -8,7 +8,8 @@
   display: flex;
   position: relative;
   left: 21%;
-  top: 50px
+  top: 50px;
+  margin-bottom: 60px;
 }
 
 h2 {

@@ -4,8 +4,8 @@
   align-items: center;
   width: 100%;
   padding: 20px 0;
-  height: 70vh;
-  background-image: url(background.jpg);
+  height: 100vh;
+  background-image: url(../images/background.jpg);
   background-size: cover;
   background-position: center;
   position: sticky;
@@ -13,7 +13,6 @@
   left: 0;
   width: 100%;
 }
-
 .tickets-content {
   display: flex;
   flex-wrap: wrap;

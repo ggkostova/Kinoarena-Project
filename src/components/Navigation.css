@@ -80,6 +80,8 @@
 
 .right-side{
   display: block;
+  position: relative;
+  top:7px;
 }
 .not-logged{
   position: relative;

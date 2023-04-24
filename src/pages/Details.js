@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function DetailsPage() {
     const { detailsId } = useParams();
+    
     const ticketsClick = (movieName, cinema, projectionType, time) => {
         localStorage.setItem("tickets", JSON.stringify({
             movieName,

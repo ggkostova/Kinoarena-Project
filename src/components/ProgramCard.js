@@ -1,17 +1,20 @@
 import React from "react";
 import './ProgramCard.css';
-import { Link } from "react-router-dom";
-import localStorageManager from "../services/LocalStorageManager";
+import { Link, useParams } from "react-router-dom";
 
-function ProgramCard({ movie }) {
+function ProgramCard({movie, onAddTicket}) {
+    const {movieId: urlMovieId} = useParams();
 
     const ticketsClick = (movieName, cinema, projectionType, time) => {
-        localStorageManager.setItem("tickets", JSON.stringify({
+        const ticket = {
+            movieId: urlMovieId,
             movieName,
             cinema,
             projectionType,
             time
-        }));
+        }
+        localStorage.setItem("tickets", JSON.stringify(ticket));
+        onAddTicket(ticket);
     };
 
     return (
@@ -25,9 +28,7 @@ function ProgramCard({ movie }) {
             </span>
             <div>
                 <table className="program-projections-table">
-                    <thead>
-                        {/* ... Table header remains the same */}
-                    </thead>
+                    <thead></thead>
                     <tbody>
                         {movie.cinemas && movie.cinemas.map((cinema, index) => (
                             <tr className="program-tr" key={index}>
@@ -36,7 +37,7 @@ function ProgramCard({ movie }) {
                                     {cinema.projection_types.map((projection, projIndex) => (
                                         <span className="projection-type-times" key={projIndex}>
                                             {projection.type}:
-                                            {projection.times.map((time, timeIndex) => (
+                                            {projection.times.map((time) => (
                                                 <Link
                                                     to={{
                                                         pathname: '/tickets',
@@ -49,7 +50,7 @@ function ProgramCard({ movie }) {
                                                     }}
                                                 >
                                                     <button
-                                                        key={timeIndex}
+                                                        key={time}
                                                         className="projection-btn-program"
                                                         onClick={() => ticketsClick(movie.name, cinema.name, projection.type, time)}
                                                     >
@@ -65,9 +66,6 @@ function ProgramCard({ movie }) {
                         ))}
                     </tbody>
                 </table>
-                {/* <button className="program-card-btn" variant="primary">
-                        <Link className="link" to="/tickets" style={{ textDecoration: "none" }}>Buy Tickets</Link>
-                    </button> */}
             </div>
 
         </div>

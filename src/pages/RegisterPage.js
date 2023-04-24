@@ -51,7 +51,7 @@ function RegisterPage() {
     let res = event.target.value;
     setPassword(res);
     if (res.length < 6 || !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/.test(res)) {
-      setPasswordMessage('Password must be at least 6 characters, one uppercase letter, one lowercase letter, one digit, and one special character.');
+      setPasswordMessage('Password must be at least 6 characters, one uppercase, one lowercase letter, one digit, and one special character.');
     } else {
       setPasswordMessage('');
     }

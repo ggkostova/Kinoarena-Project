@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-
 function Seat({ row, seat, isReserved, isSelected, onSelect }) {
   const handleClick = () => {
     if (!isReserved) {
@@ -79,8 +78,8 @@ function generateRandomId() {
   return Math.floor(Math.random() * 1000000);
 }
 
-function CinemaHall(props) {
-  const [reservedSeats, setReservedSeats] = useState(["A1", "B7", "C3"]);
+function CinemaHall() {
+  const [reservedSeats, setReservedSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);

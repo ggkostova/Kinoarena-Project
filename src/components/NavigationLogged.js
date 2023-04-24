@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import logo from "../logo.png";
-import { useParams } from "react-router-dom";
+import logo from "../images/logo.png";
 import userManager from "../services/UserManager";
 
 function NavigationLoggedBar({ handleLogout }) {
-    const { id } = useParams();
 
     let handleLogoutButton = (event) => {
         event.preventDefault();

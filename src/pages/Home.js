@@ -88,9 +88,16 @@ function HomePage(props) {
   };
 
   useEffect(() => {
-    if (filter.cinema === "default" || filter.projectionType === "default") {
+    if (filter.cinema === "default") {
       setMovies(MOVIES);
-    } else {
+    } else if(filter.cinema !== "default" && filter.cinema !== '' && filter.projectionType === "default"){
+      const filteredMovies = MOVIES.filter(
+        (movie) => (!filter.cinema ||
+            movie.cinemas.some((cinema) => cinema.name === filter.cinema))
+      );
+      setMovies(filteredMovies);
+    }
+     else {
       const filteredMovies = MOVIES.filter(
         (movie) =>
           (!filter.projectionType ||
@@ -106,12 +113,6 @@ function HomePage(props) {
       setMovies(filteredMovies);
     }
   }, [filter]);
-
-  const handleCardClick = () => {
-    props.setMovieId(props.movieId);
-    console.log(props.movieId);
-    navigate("/details");
-  };
 
   return (
     <div className="movie-page">
@@ -144,7 +145,6 @@ function HomePage(props) {
             width="100%"
             height="100%"
             src={`${currentTrailer}?autoplay=1`}
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>

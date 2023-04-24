@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./Program.css";
 import ProgramCard from "../components/ProgramCard";
 import MOVIES from "../movies";
@@ -12,6 +12,12 @@ export default function MovieProgram() {
     const [movies, setMovies] = useState(MOVIES);
     const [selectedMovie, setSelectedMovie] = useState('');
     const [filteredMovies, setFilteredMovies] = useState([]);
+    const { movieId } = useParams();
+    const [tickets, setTickets] = useState([]);
+
+    const handleAddTicket = (ticket) => {
+        setTickets((prevTickets) => [...prevTickets, ticket]);
+    };
 
     useEffect(() => {
         setSelectedCinema(initialSelectedCinema);
@@ -29,14 +35,20 @@ export default function MovieProgram() {
             setMovies(filtered);
             setFilteredMovies(filtered);
         }
+        setSelectedMovie(""); 
     }, [selectedCinema]);
 
     useEffect(() => {
-        if (selectedMovie === "default" || selectedMovie === '') {
-            setMovies(MOVIES);
-            setFilteredMovies(MOVIES);
-        } else if(selectedCinema !== "default" && !selectedCinema && (selectedMovie === "default" || selectedMovie === '')){
-            setMovies(filteredMovies);
+        if(selectedMovie === "default" || selectedMovie === ''){
+            if(selectedCinema === "default" || selectedCinema === ''){
+                setMovies(MOVIES);
+                setFilteredMovies(MOVIES);
+            }else{
+                const filtered = MOVIES.filter((movie) =>
+                movie.cinemas.some((cinema) => cinema.name === selectedCinema));
+                setMovies(filtered);
+                setFilteredMovies(filtered);
+            }
         } 
         else {
             const filtered = MOVIES.filter((movie) =>
@@ -86,7 +98,11 @@ export default function MovieProgram() {
             </div>
             <div className="movie-list-program">
                 {movies &&
-                    movies.map((movie) => <ProgramCard key={movie.id} movie={movie} />)}
+                    movies.map((movie) => <ProgramCard 
+                                            key={movie.id}
+                                            movie={movie} 
+                                            movieId={movieId}
+                                            onAddTicket={handleAddTicket}/>)}
             </div>
         </div>
     );

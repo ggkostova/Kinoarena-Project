@@ -71,7 +71,7 @@ function App() {
           <Route index element={<Navigate to={'/home'} />}></Route>
           <Route path="/home" element={<HomePage movieId={detailsId} setMovieId={(id) => setDetailsId(id)} />}></Route>
           <Route path="/cinemas" element={<CinemasPage />}></Route>
-          <Route path="/program" element={<ProgramPage />}></Route>
+          <Route path="/program" element={<ProgramPage/>}></Route>
           <Route path="/tickets" element={<BuyTickets />}></Route>
           <Route path="/details/:detailsId" element={<DetailsPage detailsId={detailsId} />}></Route>
           <Route path="/seats" element={<CinemaHall cinema={"XXX"} movieName={"Bobo"} date={"06.06"} username={"goshko"} />}></Route>
