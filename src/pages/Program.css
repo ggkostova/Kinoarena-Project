@@ -1,6 +1,7 @@
 .program-page{
   color: aliceblue;
   width: 80%;
+  min-height: 60vh;
 }
 
 .program-filters {
