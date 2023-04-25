@@ -12,6 +12,7 @@ function RegisterPage() {
   const [passwordMessage, setPasswordMessage] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmPassMessage, setConfirmPassMessage] = useState('');
+  const [yearsMessage, setYearsMessage] = useState(false);
   const [isOver18, setIsOver18] = useState(false);
 
   const handleUsername = (event) => {
@@ -69,7 +70,7 @@ function RegisterPage() {
   };
   useEffect(() => {
     if (!isOver18) {
-      console.log(isOver18);
+
     }
   }, [isOver18])
 
@@ -82,6 +83,8 @@ function RegisterPage() {
     else {
       if (password !== confirmPassword) {
         setConfirmPassMessage('The password and confirm password must be equal.');
+      } else if (!isOver18) {
+        setYearsMessage('You must be over 18 years old.');
       }
     }
   };
@@ -130,6 +133,9 @@ function RegisterPage() {
             disabled={!username || !password || !confirmPassword}
           />
           <label htmlFor="ageCheckbox" className="checkbox-label">I am over 18 years old</label>
+          </div>
+          <div className='years-message' style={{ visibility: yearsMessage ? 'visible' : 'hidden' }}>
+            {yearsMessage && yearsMessage}
         </div>
         <button className='register-btn' onClick={handleSubmit}>Register</button>
       </form>

@@ -29,9 +29,6 @@ function App() {
   const [user, setUser] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      console.log(user);
-    }
     setInterval(() => {
       const logged = userManager.isUserLoggedIn();
       setUser(logged);
@@ -42,7 +39,6 @@ function App() {
     const getId = async () => {
       await delayFunction(localStorageManager.getItem, ["detailsId"]).then((res) => {
         setDetailsId(res);
-        console.log(res);
       });
     }
     getId();

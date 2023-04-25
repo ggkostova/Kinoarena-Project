@@ -32,7 +32,6 @@
 
 .movie-card {
   background-color: #d4d4d4;
-  border-radius: 8px;
   padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -45,9 +44,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   position: relative;
-  top: 19%;
-  border-radius: 10px;
-  height: 263px;
+  top: 17%;
+  height: 264px;
 }
 
 .ticket-table th,

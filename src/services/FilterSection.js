@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "./FilterSection.css";
 
-function FilterSection({ filter, setFilter, movies, setMovies }) {
+function FilterSection({ filter, setFilter}) {
   const handleFilterChange = (event) => {
     const { name, value } = event.target;
     setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));

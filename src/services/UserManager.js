@@ -13,7 +13,7 @@ class UserManager {
     if (logged) {
       this.loggedUser = new User(logged.username, logged.password);
     }
-    this.users = [new User("gosho", "4444"), new User("pesho", "1234")];
+    this.users = [new User("gosho", "Gosho1@"), new User("pesho", "Pesho1@")];
 
     (() => {
       const addArrayToLocalStorage = (users) => {
@@ -22,8 +22,8 @@ class UserManager {
 
       if (localStorage.getItem("users") === null) {
         addArrayToLocalStorage([
-          new User("gosho", "4444"),
-          new User("pesho", "1234"),
+          new User("gosho", "Gosho1@"),
+          new User("pesho", "Pesho1@"),
         ]);
       }
     })();

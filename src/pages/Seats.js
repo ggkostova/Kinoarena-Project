@@ -109,12 +109,9 @@ function CinemaHall() {
     );
   
     if (matchingTickets.length > 0) {
-      console.log("Yes");
       const allSelectedSeats = matchingTickets.flatMap(ticket => ticket.selectedSeats);
       updateReservedSeats(allSelectedSeats);
-    } else {
-      console.log("No");
-    }
+    } 
   }, []);
   
 
@@ -151,17 +148,10 @@ function CinemaHall() {
     (state) => state.ticket
   );
 
-  console.log(cinema, movieName, date, username.username);
-
   const handleBookSeats = () => {
-    console.log(JSON.parse(localStorage.getItem("tickets")));
-
     const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
     const latestTicket = tickets[tickets.length - 1];
     let ticketsInfo = JSON.parse(localStorage.getItem("tickets"));
-    console.log(ticketsInfo[0].ticketsCount);
-
-    console.log("Latest ticket:", latestTicket);
 
     if (selectedSeats.length < ticketsInfo[0].ticketsCount) {
       setShowAlert(true);

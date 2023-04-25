@@ -80,7 +80,7 @@ p:hover {
   border-radius: 5px;
   border: none;
   color: #000000;
-  background: rgb(245, 216, 216);
+  background: rgb(250, 213, 241);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -90,10 +90,12 @@ p:hover {
 }
 
 .login-btn:hover {
-  background-color: rgb(227, 191, 191);
+  background-color: rgb(250, 213, 241);
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-.error-message{
+.error-message {
   height: 45px;
   width: 350px;
   background-color: rgb(250, 213, 241);

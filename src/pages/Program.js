@@ -24,7 +24,6 @@ export default function MovieProgram() {
     }, [initialSelectedCinema]);
 
     useEffect(() => {
-        console.log(selectedCinema);
         if (selectedCinema === "default" || selectedCinema === '') {
             setMovies(MOVIES);
             setFilteredMovies(MOVIES);

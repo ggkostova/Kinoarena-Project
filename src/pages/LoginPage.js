@@ -5,7 +5,7 @@ import userManager from '../services/UserManager';
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
-function LoginPage({handleLogin}) {
+function LoginPage({ handleLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -25,16 +25,16 @@ function LoginPage({handleLogin}) {
     }
 
     const navigate = useNavigate();
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         userManager.login(username.trim(), password).then((res) => {
-            if(res){
+            if (res) {
                 navigate("/home");
                 setIsFormValid(true);
                 setError('');
                 handleLogin();
-            }else{
+            } else {
                 setIsFormValid(false);
                 setError('Wrong username or password.');
             }
@@ -42,16 +42,7 @@ function LoginPage({handleLogin}) {
     };
 
     useEffect(() => {
-        if (!isFormValid) {
-            console.log(isFormValid);
-        }
-    }, [isFormValid]);
-
-    useEffect(() => {
-        if (error) {
-            console.log(error);
-        }
-    }, [error]);
+    }, [isFormValid, error]);
 
     return (
         <div className='login-container'>
