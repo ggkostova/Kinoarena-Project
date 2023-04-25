@@ -74,12 +74,12 @@ export default function MovieProgram() {
                     <option value="КИНО АРЕНА GRAND MALL ВАРНА">
                         КИНО АРЕНА GRAND MALL ВАРНА
                     </option>
-                    <option value="КИНО АРЕНА ДЕЛУКС BULGARIA MALL">
-                        КИНО АРЕНА ДЕЛУКС BULGARIA MALL
+                    <option value="КИНО АРЕНА BULGARIA MALL">
+                        КИНО АРЕНА BULGARIA MALL
                     </option>
                     <option value="КИНО АРЕНА МОЛ ВАРНА">КИНО АРЕНА МОЛ ВАРНА</option>
-                    <option value="КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ">
-                        КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ
+                    <option value="КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ">
+                        КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ
                     </option>
                     <option value="КИНО АРЕНА THE MALL">КИНО АРЕНА THE MALL</option>
                 </select>
