@@ -1,25 +1,25 @@
 .movie-card {
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    padding: 16px;
-    margin: 8px 0;
-    font-size: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    font-weight: lighter;
-    height: 264px;
-  }
-  
-  .movie-card h3 {
-    margin-bottom: 8px;
-  }
-  
-  .movie-card p {
-    margin-bottom: 8px;
-    border-bottom: 1px solid #f1f1f1;
-    padding-bottom: 8px;
-  }
-  
-  .movie-card p:last-child {
-    border-bottom: none;
-  }
-  
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+  margin: 8px 0;
+  font-size: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-weight: lighter;
+  height: 264px;
+  border-radius: 10px; 
+}
+
+.movie-card h3 {
+  margin-bottom: 8px;
+}
+
+.movie-card p {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 8px;
+}
+
+.movie-card p:last-child {
+  border-bottom: none;
+}

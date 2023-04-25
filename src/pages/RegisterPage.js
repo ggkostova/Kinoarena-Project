@@ -58,6 +58,8 @@ function RegisterPage() {
     }
   }
 
+  const passwordValid = password.length >= 6 && /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)/.test(password);
+
   const handleConfirmPass = (event) => {
     let res = event.target.value;
     setConfirmPassword(res);
@@ -76,7 +78,7 @@ function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isOver18 && userManager.register(username, password, confirmPassword)) {
+    if (isOver18 && password === confirmPassword && userManager.register(username, password, confirmPassword)) {
       userManager.register(username, password, confirmPassword);
       navigate("/login");
     }
@@ -137,7 +139,7 @@ function RegisterPage() {
           <div className='years-message' style={{ visibility: yearsMessage ? 'visible' : 'hidden' }}>
             {yearsMessage && yearsMessage}
         </div>
-        <button className='register-btn' onClick={handleSubmit}>Register</button>
+        <button className='register-btn' onClick={handleSubmit} disabled={!passwordValid}>Register</button>
       </form>
     </div>
   );
