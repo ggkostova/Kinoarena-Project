@@ -24,7 +24,7 @@ const CINEMAS = [
     {
         id: 3,
         image: arenaDeluxeBulgariaMall,
-        name: "КИНО АРЕНА ДЕЛУКС BULGARIA MALL",
+        name: "КИНО АРЕНА BULGARIA MALL",
         address: "гр. София, бул. България 69 Търговски център Bulgaria Mall",
         phone: "02 4047 123",
         city:"София",
@@ -40,7 +40,7 @@ const CINEMAS = [
     {
         id: 5,
         image: arenaMolMarkovoTepePlovdiv,
-        name: "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ ПЛОВДИВ",
+        name: "КИНО АРЕНА МОЛ МАРКОВО ТЕПЕ",
         address: "гр. Пловдив, бул. Руски 54 Търговски център Мол Марково Тепе",
         phone: "02 4047 125",
         city:"Пловдив",
