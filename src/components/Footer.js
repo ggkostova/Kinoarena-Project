@@ -13,9 +13,9 @@ function Footer() {
       <div className="column">
         <h3>Links</h3>
         <ul>
+          <Link className="footer-links" to={'/home'}>Home</Link><br/>
           <Link className="footer-links" to={'/cinemas'}>Cinemas</Link><br/>
           <Link className="footer-links" to={'/program'}>Program</Link><br/>
-          <Link className="footer-links" to={'/tickets'}>Buy tickets</Link><br/>
         </ul>
       </div>
       <div className="column">

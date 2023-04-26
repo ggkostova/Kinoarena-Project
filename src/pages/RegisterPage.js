@@ -22,7 +22,9 @@ function RegisterPage() {
 
     if (res.length < 3) {
       setUsernameMessage('Username must be at least 3 characters.');
-    } else {
+    } else if(res === ''){
+      setUsernameMessage('Username cannot be only spaces.');
+    }else {
       setUsernameMessage('');
     }
   }
@@ -78,7 +80,7 @@ function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isOver18 && password === confirmPassword && userManager.register(username, password, confirmPassword)) {
+    if (isOver18 && password === confirmPassword && usernameMessage === '' && username.trim() !== '' && userManager.register(username, password, confirmPassword)) {
       userManager.register(username, password, confirmPassword);
       navigate("/login");
     }
@@ -87,6 +89,8 @@ function RegisterPage() {
         setConfirmPassMessage('The password and confirm password must be equal.');
       } else if (!isOver18) {
         setYearsMessage('You must be over 18 years old.');
+      } else if (username.trim() === '') {
+        setUsernameMessage('Username cannot be only spaces.');
       }
     }
   };

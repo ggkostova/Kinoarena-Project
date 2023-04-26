@@ -144,7 +144,7 @@ function CinemaHall() {
     }
   };
 
-  const { cinema, movieName, date, username } = useSelector(
+  const { username } = useSelector(
     (state) => state.ticket
   );
 
